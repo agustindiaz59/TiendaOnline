@@ -1,0 +1,6 @@
+com.dev.tienda.config
+com.dev.tienda.controladores
+com.dev.tienda.dto
+com.dev.tienda.modelos
+com.dev.tienda.repositorios
+com.dev.tienda.servicios
