@@ -53,7 +53,7 @@ public class SecurityConfig extends AbstractSecurityWebApplicationInitializer { 
                         .requestMatchers("/assets/**").permitAll()
                         .requestMatchers("/sass/**").permitAll()
                         .requestMatchers("/script.js").permitAll()
-                        .anyRequest().denyAll()
+                        .anyRequest().permitAll()
                 )
                 .formLogin(form ->form
                         .loginPage("/login")
