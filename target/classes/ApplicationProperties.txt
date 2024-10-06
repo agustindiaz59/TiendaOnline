@@ -1,4 +1,4 @@
-datasource.url=jdbc:mysql://uybrqmu2s7qm1uox:7y9Bk5vuRLm1thdgBiqO@bbwmabvdcxht7iwvm5tj-mysql.services.clever-cloud.com:3306/bbwmabvdcxht7iwvm5tj
-datasource.user=uybrqmu2s7qm1uox
-datasource.password=7y9Bk5vuRLm1thdgBiqO
+datasource.url=jdbc:mysql://localhost:3306/tiendaWeb
+datasource.user=root
+datasource.password=admin
 datasource.driver=com.mysql.cj.jdbc.Driver
