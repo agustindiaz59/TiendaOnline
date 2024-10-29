@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.dev.tienda.config"},{"l":"com.dev.tienda.controladores"},{"l":"com.dev.tienda.dto"},{"l":"com.dev.tienda.modelos"},{"l":"com.dev.tienda.repositorios"},{"l":"com.dev.tienda.servicios"}];updateSearchResults();

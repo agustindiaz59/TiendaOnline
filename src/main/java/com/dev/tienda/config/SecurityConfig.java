@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 
 /**
@@ -33,7 +34,7 @@ public class SecurityConfig extends AbstractSecurityWebApplicationInitializer { 
     private UsuarioUserDetailsService usuarioUserDetailsService;
 
     /**
-     *     Aqui estan las configuraciones generales de la aplicacion como rutas, formularios de login y logout, csrf y otras opciones
+     * Aqui estan las configuraciones generales de la aplicacion como rutas, formularios de login y logout, csrf y otras opciones
      *
      * @param http objeto inyectado para configurar spring security
      */
@@ -42,8 +43,9 @@ public class SecurityConfig extends AbstractSecurityWebApplicationInitializer { 
         http
                 .authorizeHttpRequests(authorize -> authorize
                         //Paginas del sistema
-                        .requestMatchers("/","/index").permitAll()
+                        .requestMatchers("/","/index","/favicon.ico").permitAll()
                         .requestMatchers("/products").authenticated()
+                        .requestMatchers("/404","/crearProductos","/vistaproducts/**","/vistaproducts").permitAll()
                         //Autenticaciones
                         .requestMatchers("/login","/auth").permitAll()
                         .requestMatchers("/logout").authenticated()
@@ -53,9 +55,13 @@ public class SecurityConfig extends AbstractSecurityWebApplicationInitializer { 
                         .requestMatchers("/assets/**").permitAll()
                         .requestMatchers("/sass/**").permitAll()
                         .requestMatchers("/script.js").permitAll()
-                        .anyRequest().denyAll()
+                        .requestMatchers("/img/**").permitAll()
+                        .anyRequest().permitAll()
                 )
-                .formLogin(form ->form
+                .exceptionHandling(exception -> exception //Se encarga de redirecciones y establecer codigos de error HTTP
+                        .accessDeniedHandler(new CustomAccesDeniedHandler())
+                )
+                .formLogin(form ->form //Se encarga del login
                         .loginPage("/login")
                         .loginProcessingUrl("/auth") //ubicacion POST a donde enviar las credenciales
                         .defaultSuccessUrl("/index")
@@ -64,8 +70,11 @@ public class SecurityConfig extends AbstractSecurityWebApplicationInitializer { 
                         .usernameParameter("username")
                         .passwordParameter("password")
                 )
-                .csrf(csrf -> csrf
-                        .disable()
+                .csrf(csrf -> csrf // Se encarga de proteccion contra Cross Site Request Forgery
+                        .csrfTokenRepository(new HttpSessionCsrfTokenRepository())
+                        //Con cookieRepository se habilitan aplicaciones basadas en javascript
+                        //.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+
                 )
                 .logout(logout -> logout
                         .logoutUrl("/logout")
@@ -102,12 +111,12 @@ public class SecurityConfig extends AbstractSecurityWebApplicationInitializer { 
     }
 
 
-// Usar en caso de no tener un UserDetailsService propio
-//    @Bean
-//    @Autowired
-//    public UserDetailsManager userDetailsManager(DataSource dataSource){
-//        return new JdbcUserDetailsManager(dataSource).;
-//    }
+    // Usar en caso de no tener un UserDetailsService propio
+    //    @Bean
+    //    @Autowired
+    //    public UserDetailsManager userDetailsManager(DataSource dataSource){
+    //        return new JdbcUserDetailsManager(dataSource).;
+    //    }
 
     // Este bean es un wrapper de authManager para configurar las validaciones de usuario, opcional para detalle fino
     // @Bean

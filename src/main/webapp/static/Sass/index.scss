@@ -6,3 +6,8 @@
 @use './contacto';   
 @use './productos';   
 @use './sidebar';
+@use 'componentes/breadcrumbs';
+@use 'componentes/producto';
+@use 'componentes/tabs';
+@use 'componentes/notificacion';
+@use 'componentes/carrito';

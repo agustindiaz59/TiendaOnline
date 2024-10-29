@@ -2,7 +2,7 @@ package com.dev.tienda.controladores;
 
 import com.dev.tienda.dto.UsuarioDTO;
 import com.dev.tienda.modelos.Usuario;
-import com.dev.tienda.repositorios.UsuarioRepository;
+import com.dev.tienda.repositorios.IUsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class UsuarioControlador {
 
     @Autowired
-    private UsuarioRepository repository;
+    private IUsuarioRepository repository;
 
     @Autowired
     private PasswordEncoder encoder;
