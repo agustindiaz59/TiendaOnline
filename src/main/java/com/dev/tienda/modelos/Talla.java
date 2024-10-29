@@ -8,7 +8,7 @@ import org.hibernate.type.SqlTypes;
 @Table(name = "tallas")
 public class Talla {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO) //Para MySQL cambiar a .IDENTITY
     @Column(name = "id", nullable = false)
     @JdbcTypeCode(SqlTypes.BIGINT)
     private Long id;

@@ -56,8 +56,8 @@ public class JpaConfig {
 		return DataSourceBuilder
 				.create()
 				.driverClassName(driver)
-				.username(user)
-				.password(password)
+				//.username(user)
+				//.password(password)
 				.url(url)
 				.build();
 	}
