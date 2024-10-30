@@ -1,4 +1,4 @@
-datasource.url=jdbc:sqlite:${SQLITE_DB_PATH}
+datasource.url=jdbc:sqlite:classpath:tiendaLenceria.db
 datasource.user=root
 datasource.password=admin
 datasource.driver=org.sqlite.JDBC
