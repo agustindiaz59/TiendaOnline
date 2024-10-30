@@ -1,0 +1,81 @@
+.main {
+  .products {
+    &__container {
+      row-gap: 3.5rem;
+    }
+
+    &__card {
+      background-color: white;
+      text-align: center;
+      width: 100%; // Ajuste al 100% del contenedor
+      max-width: 390px; // Ancho máximo fijo para pantallas grandes
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 0 auto; // Centrar las tarjetas si hay menos espacio
+    }
+
+    &__content {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); // Se ajusta automáticamente
+      justify-content: center;
+      gap: 0.5rem;
+      row-gap: 1rem;
+    }
+
+    &__img {
+      height: 80%; // Permitir que la altura sea fluida
+      width: 100%; // Asegurarse de que la imagen se ajuste al contenedor de la tarjeta
+      max-width: 390px;
+      transition: transform 0.4s;
+    }
+
+    &__img:hover {
+      transform: translateY(-0.35rem);
+    }
+
+    &__name,
+    &__price {
+      font-size: 1.2rem; // Usar `rem` para tamaños relativos
+      font-weight: 500;
+      line-height: 120%;
+    }
+  }
+
+  // Media Queries para diferentes tamaños de pantalla
+  @media (min-width: 768px) {
+    .products {
+      &__content {
+        grid-template-columns: repeat(3, 1fr); // 3 columnas en pantallas medianas
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .products {
+      &__content {
+        grid-template-columns: repeat(4, 1fr); // 4 columnas en pantallas más grandes
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .products {
+      &__content {
+        grid-template-columns: repeat(1, 1fr); // 1 columna en pantallas pequeñas (móviles)
+      }
+
+      &__card {
+        max-width: 100%; // Ancho total en pantallas móviles
+      }
+
+      &__img {
+        height: auto;
+        width: 100%;
+      }
+
+      &__name,
+      &__price {
+        font-size: 1rem; // Reducir el tamaño de la fuente en pantallas más pequeñas
+      }
+    }
+  }
+}
