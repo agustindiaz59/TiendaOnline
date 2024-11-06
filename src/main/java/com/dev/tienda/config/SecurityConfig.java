@@ -43,19 +43,19 @@ public class SecurityConfig extends AbstractSecurityWebApplicationInitializer { 
         http
                 .authorizeHttpRequests(authorize -> authorize
                         //Paginas del sistema
-                        .requestMatchers("/","/index","/favicon.ico").permitAll()
-                        .requestMatchers("/products").authenticated()
-                        .requestMatchers("/404","/crearProductos","/vistaproducts/**","/vistaproducts").permitAll()
-                        //Autenticaciones
-                        .requestMatchers("/login","/auth").permitAll()
-                        .requestMatchers("/logout").authenticated()
-                        .requestMatchers("/registro","/registrar").permitAll()
-                        //Recursos estaticos
-                        .requestMatchers("/public/**").permitAll()
-                        .requestMatchers("/assets/**").permitAll()
-                        .requestMatchers("/sass/**").permitAll()
-                        .requestMatchers("/script.js").permitAll()
-                        .requestMatchers("/img/**").permitAll()
+                        //.requestMatchers("/","/index","/favicon.ico").permitAll()
+                        //.requestMatchers("/products").authenticated()
+                        //.requestMatchers("/404","/crearProductos","/vistaproducts/**","/vistaproducts").permitAll()
+                        ////Autenticaciones
+                        //.requestMatchers("/login","/auth").permitAll()
+                        //.requestMatchers("/logout").authenticated()
+                        //.requestMatchers("/registro","/registrar").permitAll()
+                        ////Recursos estaticos
+                        //.requestMatchers("/public/**").permitAll()
+                        //.requestMatchers("/assets/**").permitAll()
+                        //.requestMatchers("/sass/**").permitAll()
+                        //.requestMatchers("/script.js").permitAll()
+                        //.requestMatchers("/img/**").permitAll()
                         .anyRequest().permitAll()
                 )
                 .exceptionHandling(exception -> exception //Se encarga de redirecciones y establecer codigos de error HTTP

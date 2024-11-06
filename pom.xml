@@ -33,9 +33,11 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-    
-
-	<!-- Librerias de spring -->
+	  <dependency>
+		  <groupId>com.fasterxml.jackson</groupId>
+		  <artifactId>jackson-datatype-json-org</artifactId>
+		  <version>1.8.0</version>
+	  </dependency><!-- Librerias de spring -->
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-webmvc</artifactId>

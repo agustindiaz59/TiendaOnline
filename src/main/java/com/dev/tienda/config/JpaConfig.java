@@ -33,7 +33,7 @@ import jakarta.persistence.EntityManagerFactory;
 @Configuration
 @EnableJpaRepositories("com.dev.tienda.repositorios")// Especial para @Repository
 @ComponentScan({"com.dev.tienda.modelos","com.dev.tienda.dto"})
-@EnableTransactionManagement
+@EnableTransactionManagement(proxyTargetClass = true)
 @PropertySource("classpath:ApplicationProperties.txt")//Traigo los datos de la BBDD desde un archivo externo
 //@ComponentScan("com.dev.tienda")
 public class JpaConfig {
@@ -56,8 +56,8 @@ public class JpaConfig {
 		return DataSourceBuilder
 				.create()
 				.driverClassName(driver)
-				//.username(user)
-				//.password(password)
+				.username(user)
+				.password(password)
 				.url(url)
 				.build();
 	}

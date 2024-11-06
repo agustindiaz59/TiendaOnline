@@ -17,8 +17,8 @@
         <nav class="nav">
             <label for="menuToggle" class="cerrarmenu"><i class="bi bi-x-lg"></i></label>
             <ul class="navbar__list">
-                <li class="navbar__item"><a class="navbar__link" href="index.html">Inicio</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="products.html">Productos</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="/index">Inicio</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="/products">Productos</a></li>
                 <li class="navbar__item"><a class="navbar__link" href="#about">Acerca</a></li>
                 <li class="navbar__item"><a class="navbar__link" href="#contact">Contacto</a></li>
             </ul>
@@ -64,23 +64,25 @@
       </div> -->
 
       <div class="producto" id="producto" data-producto-id="1" th:object="${producto}">
-        <div class="producto__thumbs" th:each="imagen : *{imagenes}">
-          <img th:src="${imagen.src}" alt="" class="producto__thumb-img" />
-        </div>
+
+         <div class="producto__thumbs">
+             <img th:src="'/assets/imagen/' + ${imagen.src}" alt="" class="producto__thumb-img"  th:each="imagen : *{imagenes}"/>
+         </div>
+
         <div class="producto__contenedor-imagen">
-          <img th:src="*{imagenes.iterator().next().src}" alt="" class="producto__imagen" />
+          <img th:src="'/assets/imagen/' + *{imagenes.iterator().next().src}" alt="" class="producto__imagen" />
         </div>
         <div class="producto__contenedor-info">
           <h1 class="producto__nombre" th:text="*{nombre}"></h1>
-          <p class="producto__descripcion">Descripción del producto.</p>
+          <p class="producto__descripcion" th:text="*{descripcion}"></p>
           <div class="producto__contenedor-propiedad">
             <p class="producto__propiedad">Precio</p>
             <p class="producto__precio" th:text="'$' + *{precio}"></p>
           </div>
           <div class="producto__contenedor-propiedad" id="propiedad-color">
             <p class="producto__propiedad">Color</p>
-            <div class="producto__contenedor-radios" th:each="color : *{colores}">
-              <label th:for="${color.nombre}">
+            <div class="producto__contenedor-radios">
+              <label th:for="${color.nombre}" th:each="color : *{colores}">
                 <input
                   type="radio"
                   class="producto__radio-input"
@@ -102,49 +104,17 @@
           </div>
           <div class="producto__contenedor-propiedad" id="propiedad-tamaño">
             <p class="producto__propiedad">Tamaño</p>
-            <div class="producto__contenedor-radios">
-              <label for="1,5">
+            <div class="producto__contenedor-radios" >
+              <label th:for="${talla.numero}" th:each="talla : *{tallas}">
                 <input
                   type="radio"
                   class="producto__radio-input"
                   name="tamaño"
-                  id="1,5"
-                  value="1,5"
+                  th:id="${talla.numero}"
+                  th:value="${talla.numero}"
                   checked
                 />
-                <p class="producto__radio-texto">1,5</p>
-              </label>
-              <label for="2">
-                <input type="radio" class="producto__radio-input" name="tamaño" id="2" value="2" />
-                <p class="producto__radio-texto">2</p>
-              </label>
-              <label for="2,5">
-                <input
-                  type="radio"
-                  class="producto__radio-input"
-                  name="tamaño"
-                  id="2,5"
-                  value="2,5"
-                />
-                <p class="producto__radio-texto">2,5</p>
-              </label>
-              <label for="3">
-                <input type="radio" class="producto__radio-input" name="tamaño" id="3" value="3" />
-                <p class="producto__radio-texto">3</p>
-              </label>
-              <label for="3,5">
-                <input
-                  type="radio"
-                  class="producto__radio-input"
-                  name="tamaño"
-                  id="3,5"
-                  value="3,5"
-                />
-                <p class="producto__radio-texto">3,5</p>
-              </label>
-              <label for="4">
-                <input type="radio" class="producto__radio-input" name="tamaño" id="4" value="4" />
-                <p class="producto__radio-texto">4</p>
+                <p class="producto__radio-texto" th:text="${talla.numero}"></p>
               </label>
             </div>
           </div>

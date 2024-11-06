@@ -1,4 +1,5 @@
-datasource.url=jdbc:sqlite:classpath:tiendaLenceria.db
+datasource.url=jdbc:mysql://localhost:3306/tiendaweb
 datasource.user=root
 datasource.password=admin
-datasource.driver=org.sqlite.JDBC
+datasource.driver=com.mysql.cj.jdbc.Driver
+carpeta.imagenes=/assets/imagen/

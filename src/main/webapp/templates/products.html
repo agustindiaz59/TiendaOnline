@@ -17,8 +17,8 @@
         <nav class="nav">
             <label for="menuToggle" class="cerrarmenu"><i class="bi bi-x-lg"></i></label>
             <ul class="navbar__list">
-                <li class="navbar__item"><a class="navbar__link" href="index.html">Inicio</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="products.html">Productos</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="/index">Inicio</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="/products">Productos</a></li>
                 <li class="navbar__item"><a class="navbar__link" href="#about">Acerca</a></li>
                 <li class="navbar__item"><a class="navbar__link" href="#contact">Contacto</a></li>
             </ul>
@@ -31,13 +31,11 @@
         </div>
     </nav>
     <aside class="sidebar">
-        <ul class="sidebar__menu">
+        <ul class="sidebar__menu" th:object="${productos}">
             <li class="sidebar__menu-item">
               <button class="sidebar__menu-btn">Categoría</button>
-              <ul class="sidebar__submenu">
-                <li class="sidebar__submenu-item">Item 1</li>
-                <li class="sidebar__submenu-item">Item 2</li>
-                <li class="sidebar__submenu-item">Item 3</li>
+              <ul class="sidebar__submenu" >
+                  <li class="sidebar__submenu-item">Item 1</li>
               </ul>
             </li>
             <li class="sidebar__menu-item">
@@ -63,9 +61,9 @@
         <div class="products__bg section">
             <div class="products__container container grid">
                 <div class="products__content" >
-                    <a href="/vistaproducts" class="products__card" id="product1" th:each="producto : ${productos}">
+                    <a th:href="'/vistaproducts/' + ${producto.nombre}" class="products__card" id="product1" th:each="producto : ${productos}">
                         <article>
-                            <img th:src="${producto.imagenes.iterator().next().src}" alt="products image" class="products__img">
+                            <img th:src="'/assets/imagen/' + ${producto.imagenes.iterator().next().src}" alt="products image" class="products__img">
                             <h3 th:text="${producto.nombre}" class="products__name" id="product1-name"></h3>
                             <span th:text="'$' + ${producto.precio}" class="products__price" id="product1-price"></span>
                         </article>

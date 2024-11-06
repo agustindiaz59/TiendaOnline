@@ -12,9 +12,5 @@ ENV SQLITE_DB_PATH=/usr/local/tomcat/tiendaLenceria.db
 # Expone el puerto 8080 para acceder a la aplicación
 EXPOSE 8080
 
-# Comando para ejecutar Tomcat y ver los logs
-CMD ["catalina.sh", "run", "&&", "tail", "-f", "/usr/local/tomcat/logs/catalina.out"]
-
-
 # Comando para ejecutar Tomcat
 CMD ["catalina.sh", "run"]

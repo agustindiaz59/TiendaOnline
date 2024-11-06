@@ -1,9 +1,17 @@
 package com.dev.tienda.modelos;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+import java.util.LinkedHashSet;
+import java.util.Objects;
+import java.util.Set;
+
+@Setter
+@Getter
 @Entity
 @Table(name = "colores")
 public class Color {
@@ -18,32 +26,38 @@ public class Color {
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private String htmlValue;
 
+
     @Column(name = "nombre", length = 100)
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private String nombre;
 
 
-    public String getHtmlValue() {
-        return htmlValue;
-    }
+    @ManyToMany(mappedBy = "colores", cascade = {CascadeType.MERGE,CascadeType.REFRESH },fetch = FetchType.EAGER)
+    private Set<Producto> productos = new LinkedHashSet<Producto>();
 
-    public void setHtmlValue(String htmlValue) {
+
+
+    public Color(){}
+
+    public Color(String nombre, String htmlValue){
+        this.nombre = nombre;
         this.htmlValue = htmlValue;
     }
 
-    public String getNombre() {
-        return nombre;
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Color color = (Color) o;
+        return Objects.equals(htmlValue, color.htmlValue) && Objects.equals(nombre, color.nombre);
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    @Override
+    public int hashCode() {
+        return Objects.hash(htmlValue, nombre, productos);
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }
