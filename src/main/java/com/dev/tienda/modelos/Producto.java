@@ -35,13 +35,13 @@ public class Producto {
 
 
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     @JoinTable(name = "productos_tallas",
             joinColumns = @JoinColumn(name = "producto_id"),
             inverseJoinColumns = @JoinColumn(name = "tallas_id"))
     private Set<Talla> tallas = new LinkedHashSet<>();
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     @JoinTable(
             name = "productos_colores",
             joinColumns = @JoinColumn(name = "producto_id"),
@@ -50,14 +50,14 @@ public class Producto {
     private Set<Color> colores = new LinkedHashSet<>();
 
     //@OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true)
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.DETACH,CascadeType.REFRESH})
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     @JoinTable(name = "productos_imagenes",
             joinColumns = @JoinColumn(name = "producto_id"),
             inverseJoinColumns = @JoinColumn(name = "imagenes_id")
     )
     private Set<Imagen> imagenes = new LinkedHashSet<>();
 
-    @ManyToMany(fetch = FetchType.EAGER,cascade = {CascadeType.MERGE,CascadeType.DETACH})
+    @ManyToMany(fetch = FetchType.EAGER,cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     @JoinTable(name = "productos_categorias",
             joinColumns = @JoinColumn(name = "producto_id"),
             inverseJoinColumns = @JoinColumn(name = "categoria_id"))
@@ -74,12 +74,12 @@ public class Producto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Producto producto = (Producto) o;
-        return Objects.equals(id, producto.id) && Objects.equals(precio, producto.precio) && Objects.equals(descripcion, producto.descripcion) && Objects.equals(nombre, producto.nombre) && Objects.equals(imagenes, producto.imagenes) && Objects.equals(categorias, producto.categorias) && Objects.equals(colores, producto.colores);
+        return Objects.equals(id, producto.id) && Objects.equals(precio, producto.precio) && Objects.equals(descripcion, producto.descripcion) && Objects.equals(nombre, producto.nombre);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, precio, descripcion, nombre, imagenes, categorias, colores);
+        return Objects.hash(id, precio, descripcion, nombre);
     }
 
 

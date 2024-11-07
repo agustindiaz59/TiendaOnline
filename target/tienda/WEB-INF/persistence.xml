@@ -1,0 +1,22 @@
+<!-- Este archivo esta en desuso, ver jpaConfig -->
+
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+    <persistence-unit name="tiendaPU">
+        <class>com.dev.tienda.modelos.Usuario</class>
+        
+        <!-- Propiedades de Hibernate -->
+        <properties>
+            <!-- Configuración de la base de datos -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tiendaweb"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="admin"/>
+
+            <!-- Configuración de Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/> <!-- Genera automáticamente las tablas -->
+            <property name="hibernate.show_sql" value="true"/> <!-- Muestra las sentencias SQL en los logs -->
+            <property name="hibernate.format_sql" value="true"/> <!-- Formatea las sentencias SQL en los logs -->
+        </properties>
+    </persistence-unit>
+</persistence>

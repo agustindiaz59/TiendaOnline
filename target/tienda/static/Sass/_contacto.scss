@@ -1,0 +1,94 @@
+.footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #f8f8f8;
+    align-items: center;
+    gap: 150px;
+    // padding: 20px 0;
+    overflow: auto;
+    .text__raro{
+        text-align: start;
+        // list-style-type: none;
+        font-size: 1rem;
+        width: 300px;
+    }
+    .textinfo{
+       &__title{
+        font-size: 2rem;
+        text-align: start;
+       }
+       &__text{
+          font-size: 1rem;
+          text-align: start;
+       }
+    }
+    .web-social {
+        display: flex;
+        height: 70px;
+        justify-content: start;
+        align-items: center; // Alinea verticalmente los logos en el centro
+        flex-direction: row; // Asegura que los logos se pongan en una fila
+        list-style: none;
+        padding: 0;
+        margin: 0;
+       
+
+        &__item {
+            margin: 0 7px;
+            a {
+                img {
+                    width: 35px;
+                    height: 35px;
+                }
+            }
+        }
+    }
+    @media (min-width: 320px) and (max-width: 767px) {
+        flex-direction: column; // Cambia a disposición en columna
+        align-items: center; // Centra los elementos dentro de la columna
+        gap: 30px;
+        .text__raro{
+            text-align: center;
+            // list-style-type: none;
+            font-size: 1rem;
+        }
+        .textinfo{
+            width: 300px;
+           &__title{
+            font-size: 2rem;
+            text-align: center;
+           }
+           &__text{
+              font-size: 1rem;
+              text-align: center;
+           }
+        }
+        .web-social {
+            display: flex;
+            height: 60px;
+            justify-content: center;
+            align-items: center; // Alinea verticalmente los logos en el centro
+            flex-direction: row; // Asegura que los logos se pongan en una fila
+            list-style: none;
+            padding: 0;
+            margin: 0;
+           
+    
+            &__item {
+                margin: 0 7px;
+                a {
+                    img {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+        }
+    }
+    
+    // Media query para pantallas de 768px en adelante
+    @media (min-width: 768px) {
+        flex-direction: row; // Vuelve a disposición en fila (row)
+    }
+}

@@ -1,10 +1,13 @@
 package com.dev.tienda.modelos;
 
+import com.dev.tienda.repositorios.IColorRepository;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Persistable;
 
 import java.util.LinkedHashSet;
 import java.util.Objects;
@@ -14,7 +17,15 @@ import java.util.Set;
 @Getter
 @Entity
 @Table(name = "colores")
-public class Color {
+public class Color implements Persistable<Long> {
+
+    @Transient
+    private boolean isNew = true;
+
+    @Override
+    public boolean isNew() {
+        return isNew;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +38,7 @@ public class Color {
     private String htmlValue;
 
 
-    @Column(name = "nombre", length = 100)
+    @Column(name = "nombre", length = 100, unique = true)
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private String nombre;
 
@@ -57,7 +68,8 @@ public class Color {
 
     @Override
     public int hashCode() {
-        return Objects.hash(htmlValue, nombre, productos);
+        return Objects.hash(htmlValue, nombre);
     }
+
 
 }
