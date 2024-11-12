@@ -10,7 +10,7 @@ import java.io.IOException;
 public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 
     @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, IOException {
+    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
         // Redirigir al home sin parámetros
         response.sendRedirect("/index");
     }

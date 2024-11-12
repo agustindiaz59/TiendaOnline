@@ -1,4 +1,4 @@
 package com.dev.tienda.modelos;
 
-public class Cliente {
+public class Cliente{
 }

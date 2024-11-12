@@ -17,13 +17,10 @@ public class ColorService {
 
     @Transactional
     public void guardarTodos(Set<Color> colores){
-        Optional<Color> aGuardar;
 
         for (Color c : colores){
-            aGuardar = Optional.ofNullable(repository.findByNombre(c.getNombre()));
-
-            System.out.println("-----------------------" + c.toString() + "--------------------------");
-            repository.save(aGuardar.orElse(c));
+            //TODO Hacer que los find retornen Optional<T>
+            repository.save(repository.findByNombre(c.getNombre()).orElse(c));
         }
     }
 }

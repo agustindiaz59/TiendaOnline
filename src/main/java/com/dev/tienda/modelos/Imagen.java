@@ -4,17 +4,13 @@ import com.dev.tienda.dto.ImagenDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-import java.util.LinkedHashSet;
 import java.util.Objects;
-import java.util.Set;
-import java.util.random.RandomGenerator;
 
 @Setter
-@Getter
+@Getter()
 @Entity
 @Table(name = "imagenes")
 public class Imagen {
@@ -27,12 +23,12 @@ public class Imagen {
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private String src;
 
-    //@ManyToOne(cascade = CascadeType.ALL)
-    //@JoinColumn(name = "producto_id")
-    //private Producto producto;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "producto_id")
+    private Producto producto;
 
-    @ManyToMany(mappedBy = "imagenes",fetch = FetchType.EAGER, cascade = {CascadeType.MERGE,CascadeType.REFRESH })
-    private Set<Producto> productos = new LinkedHashSet<Producto>();
+    //@ManyToMany(mappedBy = "imagenes",fetch = FetchType.EAGER, cascade = {CascadeType.MERGE,CascadeType.REFRESH })
+    //private Set<Producto> productos = new LinkedHashSet<Producto>();
 
     public Imagen(String src){
         this.src = src;

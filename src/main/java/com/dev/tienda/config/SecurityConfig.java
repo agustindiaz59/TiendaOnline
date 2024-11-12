@@ -45,8 +45,8 @@ public class SecurityConfig extends AbstractSecurityWebApplicationInitializer { 
                         //Paginas del sistema
                         //.requestMatchers("/","/index","/favicon.ico").permitAll()
                         //.requestMatchers("/products").authenticated()
-                        //.requestMatchers("/404","/crearProductos","/vistaproducts/**","/vistaproducts").permitAll()
-                        ////Autenticaciones
+                        .requestMatchers("/404","/crearProductos","/vistaproducts/**","/vistaproducts").permitAll()
+                        //Autenticaciones
                         //.requestMatchers("/login","/auth").permitAll()
                         //.requestMatchers("/logout").authenticated()
                         //.requestMatchers("/registro","/registrar").permitAll()

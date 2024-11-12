@@ -3,7 +3,6 @@ package com.dev.tienda.modelos;
 import com.dev.tienda.dto.UsuarioDTO;
 import jakarta.persistence.*;
 import lombok.*;
-import org.aspectj.lang.reflect.UnlockSignature;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;

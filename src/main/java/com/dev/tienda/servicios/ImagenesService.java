@@ -4,6 +4,7 @@ import com.dev.tienda.modelos.Imagen;
 import com.dev.tienda.repositorios.IImagenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.Optional;
@@ -15,11 +16,10 @@ public class ImagenesService {
     private IImagenRepository imagenRepository;
 
 
-
+    @Transactional
     public void guardar(Imagen entity) {
         //
-        Imagen bd = imagenRepository.findBySrc(entity.getSrc());
-        Optional<Imagen> aGuardar = Optional.ofNullable(bd);
+        Optional<Imagen> aGuardar = imagenRepository.findBySrc(entity.getSrc());
 
 
         imagenRepository.save(aGuardar.orElse(entity));

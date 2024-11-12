@@ -31,11 +31,11 @@
         </div>
     </nav>
     <aside class="sidebar">
-        <ul class="sidebar__menu" th:object="${productos}">
+        <ul class="sidebar__menu">
             <li class="sidebar__menu-item">
               <button class="sidebar__menu-btn">Categoría</button>
-              <ul class="sidebar__submenu" >
-                  <li class="sidebar__submenu-item">Item 1</li>
+              <ul class="sidebar__submenu"  th:each="categoria : ${categorias}">
+                  <li class="sidebar__submenu-item" th:text="${categoria.nombre}"></li>
               </ul>
             </li>
             <li class="sidebar__menu-item">
@@ -61,7 +61,7 @@
         <div class="products__bg section">
             <div class="products__container container grid">
                 <div class="products__content" >
-                    <a th:href="'/vistaproducts/' + ${producto.nombre}" class="products__card" id="product1" th:each="producto : ${productos}">
+                    <a th:href="'/vistaproducts?n=' + ${producto.nombre}" class="products__card" id="product1" th:each="producto : ${productos}">
                         <article>
                             <img th:src="'/assets/imagen/' + ${producto.imagenes.iterator().next().src}" alt="products image" class="products__img">
                             <h3 th:text="${producto.nombre}" class="products__name" id="product1-name"></h3>

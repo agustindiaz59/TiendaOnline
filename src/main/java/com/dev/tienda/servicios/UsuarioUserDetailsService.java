@@ -19,7 +19,7 @@ public class UsuarioUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        return repositorio.findByNombre(username);
+        return repositorio.findByNombre(username).get();
 
         //if(usuario != null){
         //    UserDetails springUser = User.builder() //UserDetails es el objeto que spring usa para comprobar credenciales, permisos y roles

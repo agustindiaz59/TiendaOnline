@@ -13,6 +13,6 @@ public interface IColorRepository extends JpaRepository<Color,Long> {
 
 
     Boolean existsByNombre(String nombre);
-    Color findByNombre(String nombre);
+    Optional<Color> findByNombre(String nombre);
 
 }

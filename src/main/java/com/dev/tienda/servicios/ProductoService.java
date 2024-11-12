@@ -25,13 +25,16 @@ public class ProductoService {
     }
 
     public Producto traer(String nombre){
-        return productoRepository.findByNombre(nombre);
+        return productoRepository.findByNombre(nombre).orElse(null);
     }
+
+    //TODO Relacionar los metodos de servicio para verificar la existencia de los
+    // elementos en el contexto de persistencia
 
     @Transactional
     public void guardar(Producto entity) {
         //Verifica si ya existe un producto por su nombre
-        Optional<Producto> aGuardar = Optional.ofNullable(productoRepository.findByNombre(entity.getNombre()));
+        Optional<Producto> aGuardar = productoRepository.findByNombre(entity.getNombre());
 
         if(aGuardar.isPresent()){
            aGuardar.get().setNombre(entity.getNombre());

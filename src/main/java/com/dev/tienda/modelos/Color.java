@@ -55,6 +55,10 @@ public class Color implements Persistable<Long> {
         this.htmlValue = htmlValue;
     }
 
+    public Color(String nombre){
+        this.nombre = nombre;
+    }
+
 
 
 

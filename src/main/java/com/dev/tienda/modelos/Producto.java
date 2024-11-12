@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+import java.awt.*;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -35,13 +36,13 @@ public class Producto {
 
 
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST})
     @JoinTable(name = "productos_tallas",
             joinColumns = @JoinColumn(name = "producto_id"),
             inverseJoinColumns = @JoinColumn(name = "tallas_id"))
     private Set<Talla> tallas = new LinkedHashSet<>();
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST})
     @JoinTable(
             name = "productos_colores",
             joinColumns = @JoinColumn(name = "producto_id"),
@@ -49,24 +50,62 @@ public class Producto {
     )
     private Set<Color> colores = new LinkedHashSet<>();
 
-    //@OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true)
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinTable(name = "productos_imagenes",
-            joinColumns = @JoinColumn(name = "producto_id"),
-            inverseJoinColumns = @JoinColumn(name = "imagenes_id")
-    )
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
     private Set<Imagen> imagenes = new LinkedHashSet<>();
 
-    @ManyToMany(fetch = FetchType.EAGER,cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @ManyToMany( cascade = {CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.DETACH})
     @JoinTable(name = "productos_categorias",
             joinColumns = @JoinColumn(name = "producto_id"),
             inverseJoinColumns = @JoinColumn(name = "categoria_id"))
-    private Set<Categoria> categorias = new LinkedHashSet<Categoria>();
+    private Set<Categoria> categorias = new LinkedHashSet<>();
 
 
 
     public Producto(){}
 
+
+
+    //TODO Agregar metodos para llenar las colecciones
+    // y estalecer las relaciones entre elementos
+
+    //Metodos de imagenes
+    public void agregarImagen(Imagen img){
+        img.setProducto(this);
+        imagenes.add(img);
+    }
+
+    public void agregarImagen(String src){
+        Imagen img = new Imagen(src);
+        img.setProducto(this);
+        imagenes.add(img);
+    }
+
+
+    //Metodos de colores
+    public void agregarColor(Color color){
+        colores.add(color);
+    }
+
+    public void agregarColor(String nombre){
+        Color color = new Color(nombre);
+        colores.add(color);
+    }
+
+    public void agregarColor(String nombre, String htmlValue){
+        Color color = new Color(nombre,htmlValue);
+        colores.add(color);
+    }
+
+
+    //Metodos de categoria
+    public void agregarCategoria(Categoria categoria){
+        categorias.add(categoria);
+    }
+
+    public void agregarCategoria(String nombreCategoria){
+        Categoria categoria = new Categoria(nombreCategoria);
+        categorias.add(categoria);
+    }
 
 
     @Override

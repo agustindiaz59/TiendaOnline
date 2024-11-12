@@ -25,8 +25,14 @@ public class Categoria {
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private String nombre;
 
-    @ManyToMany(mappedBy = "categorias", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+    @ManyToMany(mappedBy = "categorias", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     private Set<Producto> productos = new LinkedHashSet<>();
+
+    public Categoria(){}
+
+    public Categoria(String nombre){
+        this.nombre = nombre;
+    }
 
     @Override
     public boolean equals(Object o) {

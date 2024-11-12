@@ -13,11 +13,13 @@ import java.util.Optional;
 @Repository
 public interface IImagenRepository extends JpaRepository<Imagen, Long> {
 
-    Imagen findBySrc(String src);
+    Optional<Imagen> findBySrc(String src);
     Boolean existsBySrc(String src);
 
+    /*
     @Transactional
     @Modifying
     @Query("update Imagen i set i.src = ?1")
     int updateSrcBy(String src);
+     */
 }
