@@ -1,0 +1,81 @@
+/* Diseño del grid */
+.grid-container > * {
+    // box-shadow: 10px 6px 37px -13px rgba(51, 51, 51, 0.74);
+    // border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.header {
+    grid-area: header;
+    background-color: #252424;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: rgba(77, 237, 106, 0.74);
+}
+
+.main {
+    grid-area: main;
+    background-color: #f4f4f4;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: rgba(237, 123, 67, 0.74);
+    // overflow: auto;
+}
+.navbard{
+    grid-area: navbard;
+    background-color: #f4f4f4;
+}
+
+/* Media queries para diferentes tamaños de pantalla */
+@media (min-width: 320px) {
+    .grid-container {
+        display: grid;
+        gap: 20px;
+        grid-template:
+            "header " 100px
+            "navbard" 30px
+            "main " auto
+            "sidebar" 50px
+            "footer " auto;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+    .no-sidebar{
+        grid-template:
+            "header" 100px
+            "navbard" 30px
+            "main" auto
+            "footer" auto; // Elimina el sidebar aquí
+    }
+  
+}
+
+@media (min-width: 768px) {
+    .grid-container {
+        display: grid; 
+        grid-template:
+            "header header header" 100px
+            "navbard navbard navbard" 50px
+            "sidebar main main" auto
+            "footer footer footer" auto / 200px auto 200px;
+    }
+    .no-sidebar{
+        grid-template:
+            "header header header" 100px
+            "navbard navbard navbard" 50px
+            "main main main" auto
+            "sidebar sidebar sidebar" auto 
+            "footer footer footer" auto / 200px auto 200px;
+    }
+}
