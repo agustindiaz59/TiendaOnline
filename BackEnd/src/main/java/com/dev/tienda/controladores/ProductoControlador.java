@@ -40,38 +40,28 @@ public class ProductoControlador {
         Producto p = new Producto();
 
         Set<Imagen> imagenes = new LinkedHashSet<>();
-        imagenes.add(new Imagen("bralete3.jpg"));
-        imagenes.add(new Imagen("bralete2.jpg"));
-        imagenes.add(new Imagen("bralete1.jpg"));
+        imagenes.add(new Imagen("deportivo.jpg"));
 
         Set<Color> colores = new LinkedHashSet<>();
-        colores.add(new Color(1L,"amarillo", "#FF0000"));
+        colores.add(new Color("amarillo", "#FF0000"));
+        colores.add(new Color("rojo", "#FF0000"));
 
         Set<Talla> tallas = new LinkedHashSet<>();
-        tallas.add(new Talla(1L,1.5F));
-        tallas.add(new Talla(2L,2F));
-        tallas.add(new Talla(3L,2.5F));
+        tallas.add(new Talla(1.5F));
+        tallas.add(new Talla(2F));
 
         Set<Categoria> categorias = new LinkedHashSet<>();
         categorias.add(new Categoria("Ropa interior"));
 
-        p.setNombre("Bralette");
-        p.setDescripcion("Brealette interior");
-        p.setPrecio(5900F);
+        p.setNombre("Deportivo");
+        p.setDescripcion("Conjunto deportivo");
+        p.setPrecio(5200F);
         p.setImagenes(imagenes);
         p.setColores(colores);
         p.setTallas(tallas);
         p.setCategorias(categorias);
 
 
-
-        //TODO implementar servicios para demas entidades para verificar su existencia
-        //cat.setId(1L); // Para guardar necesito no tener id, para actualizar hay que tenerlo
-        //t3.setId(1L);
-        //t2.setId(1L);
-        //t1.setId(1L);
-        //img2.setId(1L);
-        //c3.setId(1L);
 
 
         productoService.guardar(p);
@@ -106,7 +96,7 @@ public class ProductoControlador {
     @GetMapping("/vistaproducts")
     public String detalleDeProducto(Model modelo, @RequestParam("n") String nombre){
 
-        nombre = nombre.replace('-',' ');
+        nombre = nombre.replace('+',' '); //TODO Cambiar por equivalente inverso en la vista
         Producto p = productoService.traerConTodo(nombre);
 
         modelo.addAttribute("producto",p);

@@ -1,11 +1,14 @@
 @use './../variables';
-.main{
+
+.main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
+
 .producto {
-	width: 1200px;
+	width: 100%;
+	max-width: 1200px;
 	background: #fff;
 	border-radius: 10px;
 	padding: 20px;
@@ -79,8 +82,8 @@
 		display: flex;
 		gap: 10px;
 	}
-	&__contenedor-info{
-		text-align:start;
+	&__contenedor-info {
+		text-align: start;
 	}
 
 	&__radio-input {
@@ -158,5 +161,86 @@
 		&:hover {
 			background: variables.$color-btn-hover;
 		}
+	}
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+	.producto {
+		grid-template-columns: 1fr; /* Cambia a una columna */
+		gap: 15px;
+		padding: 15px;
+	}
+
+	.producto__thumbs {
+		flex-direction: row; /* Cambia thumbnails a fila */
+		overflow-x: auto; /* Habilita scroll horizontal */
+		gap: 10px;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.producto__thumb-img {
+		width: 50px; /* Reduce tamaño */
+	}
+
+	.producto__imagen {
+		width: 100%;
+		height: auto;
+	}
+
+	.producto__nombre {
+		font-size: 24px;
+		text-align: center;
+	}
+
+	.producto__descripcion {
+		font-size: 14px;
+		text-align: center;
+	}
+
+	.producto__precio {
+		font-size: 28px;
+		text-align: center;
+	}
+
+	.producto__contenedor-info {
+		text-align: center;
+	}
+
+	.producto__btn-carrito {
+		width: 100%; /* Botón ocupa todo el ancho */
+		font-size: 14px;
+	}
+
+	.producto__contenedor-radios {
+		display: flex;
+		gap: 10px;
+		justify-content: center;
+		align-items: center;
+	}
+
+}
+
+@media (max-width: 480px) {
+	.producto {
+		padding: 10px;
+	}
+
+	.producto__nombre {
+		font-size: 20px;
+	}
+
+	.producto__descripcion {
+		font-size: 12px;
+	}
+
+	.producto__precio {
+		font-size: 24px;
+	}
+
+	.producto__btn-carrito {
+		font-size: 12px;
+		padding: 8px 20px;
 	}
 }

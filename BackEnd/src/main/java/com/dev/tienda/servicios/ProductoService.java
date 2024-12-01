@@ -17,6 +17,15 @@ public class ProductoService {
     @Autowired
     private IProductoRepository productoRepository;
 
+    @Autowired
+    private CategoriaService categoriaService;
+    @Autowired
+    private ColorService colorService;
+    @Autowired
+    private ImagenesService imagenService;
+    @Autowired
+    private TallaService tallaService;
+
 
 
     //TODO Relacionar los metodos de servicio para verificar la existencia de los
@@ -24,7 +33,11 @@ public class ProductoService {
 
     @Transactional
     public void guardar(Producto entity) {
-        //Verifica si ya existe un producto por su nombre
+
+        productoRepository.save(contextualizar(entity));
+
+
+        /*Verifica si ya existe un producto por su nombre
         Optional<Producto> aGuardar = productoRepository.findByNombre(entity.getNombre());
 
         if(aGuardar.isPresent()){
@@ -39,6 +52,8 @@ public class ProductoService {
 
         //Si ya existe lo actualiza, si no lo guarda como uno nuevo (upsert)
         productoRepository.save(aGuardar.orElse(entity));
+
+         */
     }
 
     public List<Producto> traerTodosConImagenes(){
@@ -62,4 +77,14 @@ public class ProductoService {
         return productoRepository.findByNombre(nombre).orElse(null);
     }
 
+    private Producto contextualizar(Producto producto){
+        Producto contexto = productoRepository.findByNombre(producto.getNombre()).orElse(producto);
+
+        contexto.setColores(colorService.contextualizar(producto.getColores()));
+        contexto.setTallas(tallaService.contextualizar(producto.getTallas()));
+        contexto.setCategorias(categoriaService.contextualizar(producto.getCategorias()));
+        contexto.setImagenes(imagenService.contextualizar(producto.getImagenes()));
+
+        return contexto;
+    }
 }

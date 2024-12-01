@@ -1,5 +1,7 @@
 @use '../variables';
-
+.main{
+   flex-direction: column;
+}
 .breadcrumbs {
 	display: flex;
 	align-items: center;

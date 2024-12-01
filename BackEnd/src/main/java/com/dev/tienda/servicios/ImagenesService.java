@@ -8,21 +8,31 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class ImagenesService {
 
     @Autowired
-    private IImagenRepository imagenRepository;
+    private IImagenRepository repository;
 
 
     @Transactional
     public void guardar(Imagen entity) {
         //
-        Optional<Imagen> aGuardar = imagenRepository.findBySrc(entity.getSrc());
+        Optional<Imagen> aGuardar = repository.findBySrc(entity.getSrc());
 
 
-        imagenRepository.save(aGuardar.orElse(entity));
+        repository.save(aGuardar.orElse(entity));
+    }
+
+    public Set<Imagen> contextualizar(Set<Imagen> imagenes){
+        return imagenes.stream()
+                .map( imagen ->
+                        repository.findBySrc(imagen.getSrc()).orElse(imagen)
+                )
+                .collect(Collectors.toSet());
     }
 
 }
