@@ -1,190 +1,213 @@
-
-.main{
+.row {
   flex-direction: row!important;
+  gap: 2rem; 
 }
-/* Contenedor del filtro */
-.filter-container {
-  width: 250px;
-  padding-left: 30px!important;
-  margin-top: -410px;
-  text-align: left;
-  display: block; /* Asegúrate de que se muestre en la vista de PC */
+/* Estilos Boton Filtrar */
+.btsfiltrar{ 
+  display: none;
 }
 
-.filter-container h2 {
-  font-size: 20px;
-  margin-bottom: 20px;
-  color: #000;
-}
-
-/* Grupo de filtros */
-.filter-group {
-  margin-bottom: 20px;
-}
-
-.filter-group h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #444;
-}
-
-/* Etiquetas de filtros */
-.filter-group label {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.filter-group input[type="checkbox"] {
-  margin-right: 10px;
-  transform: scale(1.2);
-  cursor: pointer;
-}
-h3,h2{
-  text-align: start;
-}
-
-.filter-group__label{
-  margin-top: 15px;
-}
-/* Circulitos de color */
-.color-circle {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  display: inline-block;
-  margin-left: auto;
-  border: 1px solid #ccc;
-}
-/* Estilo para los checkboxes */
-.filter-group input[type="checkbox"] {
-  -webkit-appearance: none; /* Quitar el estilo predeterminado en Webkit */
-  -moz-appearance: none;    /* Quitar el estilo predeterminado en Firefox */
-  appearance: none;         /* Quitar el estilo predeterminado */
-  width: 20px;
-  height: 20px;
-  border: 1px solid #000;   /* Borde negro */
-  border-radius: 4px;       /* Esquinas redondeadas */
-  background-color: transparent; /* Fondo transparente */
-  cursor: pointer;
-  position: relative;
-  display: flex;
-  align-items: center;      /* Alinea verticalmente */
-  justify-content: center;  /* Alinea horizontalmente */
-}
-
-/* Estilo cuando el checkbox está marcado */
-.filter-group input[type="checkbox"]:checked {
-  background-color: transparent; /* Fondo transparente */
-  border-color: #000;            /* Borde negro */
-}
-
-/* Estilo para mostrar la marca de verificación en el checkbox */
-.filter-group input[type="checkbox"]:checked::before {
-  content: '✓';                /* La marca de verificación */
-  position: absolute;
-  font-size: 18px;              /* Tamaño de la marca de verificación */
-  color: #000;                  /* Color negro */
-  font-weight: bold;            /* Enfatizar la marca */
-  line-height: 0;               /* Alineación centrada */
-}
-.btn-filtrar {
-  background-color: #a50050;
-  border: none;
-  color: white;
-  padding: 12px 24px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
-  transition: all 0.3s ease; /* Transición suave */
-  display: none; 
-}
-
-.btn-filtrar:hover {
-  background-color: #45a049; /* Color verde más oscuro al pasar el mouse */
-  transform: scale(1.05); /* Aumenta un poco el tamaño del botón al pasar el mouse */
-}
-
-
-.close-filter-btn {
-  background: none;
-  border: none;
-  font-size: 1.7rem; /* Tamaño similar al de un h2 */
-  font-weight: bold;
-  color: inherit; /* Hereda el color del texto del contenedor */
-  cursor: pointer;
-  padding: 0; /* Elimina el padding extra */
-  display: inline-block; /* Hace que el botón se comporte como texto */
-  text-align: left; /* Alinea el texto a la izquierda */
-  margin-left: 0; /* Asegura que no haya margen izquierdo */
-  padding-bottom: 20px;
-}
-@media (max-width: 968px) {
-  .main {
-    flex-direction: column!important;
+.sidebar {
+    display: flex;
+    justify-content: end;  // Empieza del lado final
+    background-color: #f4f4f4;
+    padding: 10px;
+  
+    &__menu {
+      list-style: none; // Quitamos la decoracciones 
+      padding: 0; 
+  
+      &-item {
+        margin-bottom: 15px; // Ajustamos el contenido hacia abajo
+      }
+      /* Estilos para el botón 
+      En este bloque ajustamos el ancho, el diseño, el color y la fuente */
+      &-btn {
+        width: 100%;
+        background-color: transparent;
+        color: #000000;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        font-weight: 700;
+        /* Estilos para el estado hover */
+        &:hover {
+          background-color: #0056b3; // Al pasar cambia el color con el cursor
+        }
+      }
+    }
+    /* Estilos de submenu:
+    El submenú tiene una lista sin estilo (list-style: none), con un margen superior de 10px y un espaciado interno a la izquierda de 15px. Está oculto por defecto con display: none. */
+    &__submenu {
+      list-style: none;
+      margin-top: 10px;
+      padding-left: 15px;
+      display: none; 
+  
+      &--open {
+        display: block; // Cuando el submenú tiene la clase --open, se muestra al cambiar su display a block.
+      }
+     /* Estilos de los elementos de la lista item):
+     Los elementos de la lista tienen márgenes de 5px arriba y abajo, con un relleno de 5px a los lados. Además, los bordes son redondeados con border-radius: 3px. Cuando se pasa el cursor sobre un ítem, su fondo cambia a un color gris claro. */
+      &-item {
+        margin: 5px 0;
+        padding: 5px 10px;
+        border-radius: 3px;
+      
+        &:hover {
+          background-color: #d6d8db; 
+        }
+      }
+      /* Estilo para el checkbox 
+       Este bloque configura un contenedor flexible para el cuadro, centrando su contenido tanto horizontal como verticalmente. También elimina los estilos predeterminados del navegador y cambia el cursor a "mano" al pasar sobre el contenedor*/
+      &-cuadrado {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        accent-color: #ffffff;
+        cursor: pointer;
+        appearance: none;
+      }
+      
+      /* Estilo del cuadro de verificación 
+       Este bloque define el estilo para el cuadro, cuando no está marcado. Tiene un borde negro, un tamaño específico y el símbolo de una marca de verificación (✔) invisible, pero configurado para mostrarse cuando el cuadro se marque.*/
+      &-cuadrado::before {
+        border: 2px solid black;
+        border-radius: 4px;
+        color: transparent;
+        content: "\2713";
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        line-height: 17px; 
+      }
+      /* Estilos cuando el cuadro de verificación está marcado 
+      Este bloque establece el estilo para cuando el cuadro de está marcado. Se cambia el color del símbolo de verificación a negro, se pone en negrita y se asegura de que el símbolo esté centrado. */
+      &-cuadrado:checked::before {
+        color: #000000; 
+        content: "\2713"; 
+        font-weight: 900;
+        line-height: 17px; 
+        text-align: center; 
+      }
+      /* Estilos para la etiqueta del cuadro de verificación 
+      Este bloque define el estilo para la etiqueta asociada al cuadro. Usa flexbox para organizar los elementos dentro de la etiqueta y coloca un espacio entre ellos. El cursor cambia a "mano" cuando pasa sobre la etiqueta*/
+      &-label {
+        width: 180px;
+        display: flex;
+        gap: 1.4rem;
+        font-size: 0.9rem;
+        cursor: pointer; 
+        align-items: center; 
+        justify-content: flex-start;
+        position: relative;
+       }
+      /* Estilos para el pequeño círculo 
+      Este bloque posiciona un círculo pequeño en la esquina derecha de la etiqueta. Se utiliza position: absolute para ubicarlo, y el border-radius: 50% lo convierte en un círculo.*/
+      &-tamaños{
+        position: absolute;
+        right: 0;
+        width: 15px;  
+        height: 15px;
+        border-radius: 50%;
+      }
+      /* Colores Apartado */
+      &-negro {
+        background-color:#000000;
+      }
+      &-azul{
+        background-color: blue;
+      }
+      &-blanco{
+        border: 2px solid #000000;
+      }
+      &-rosa{
+        background-color: pink;
+      }
+      &-verde{
+        background-color: green;
+      }
+      &-naranja{
+        background-color: orange;
+      }
+      &-Amarillo{
+        background-color: yellow;
+      }
+      &-violeta{
+        background-color: violet;
+      }
+    }
   }
-  .filter-container {
-    display: none;
-    padding: 0!important;
-    background-color: #f8f8f8;
-    position: fixed; /* Posiciona el contenedor respecto al body */
-    top: 0; /* Asegura que empiece desde la parte superior */
-    left: 0; /* Asegura que empiece desde la parte izquierda */
-    width: 100%; /* Ocupa todo el ancho */
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
-    margin-top: 0; /* Asegúrate de que el margen no afecte en móviles */
-    padding: 10px; /* Ajusta el padding si es necesario */
-    z-index: 1000; /* Para asegurarse de que esté por encima de otros elementos si es necesario */
+  @media (320px <= width <= 768px) {
+    .row{
+      flex-direction: column!important;
+    }
+    .btsfiltrar{
+      display: block;
+    }
+    /* Estilo del sidebar 
+    La clase .sidebar define un menú lateral oculto con posición fija, ancho completo, desplazamiento vertical habilitado, animación de deslizamiento y prioridad visual con un z-index alto.
+    */
+    .sidebar {
+      display: none;
+      position: fixed;  /* El sidebar se mantiene fijo en la pantalla */
+      left: -250px;    
+      top: 0;
+      width: 100%;     
+      height: 100vh;   
+      background-color: #ffffff; 
+      color: rgb(0, 0, 0);    
+      padding: 0;
+      transition: left 0.3s ease; /* Animación de deslizamiento */
+      overflow-y: auto; /* Permite desplazamiento vertical dentro del sidebar */
+      z-index: 8;    
+      padding-top: 40px;
+      &__menu{
+        display: flex;               
+        flex-direction: column;      
+        gap: 1rem;                
+        padding: 0;
+        margin: 0;
+        &-btnstyles{
+          position: absolute;
+          background-color: #252424;
+          left: -0;
+          border-radius: 0px;
+          top: -0px;
+          color: #ffffff;
+        }
+        &-btn{
+          font-size: 1rem;     
+        }
+        &-btn:hover{
+          background-color: transparent;
+        }
+        &-item {
+          margin: 0 1rem;            
+          // margin-bottom: 50px;   
+        }
+      }
+      /* Estilos del submenu-label
+      El contenedor del submenú usa flexbox para alinear sus elementos, ocupa todo el ancho disponible, con un espacio entre ellos y texto alineado a la izquierda. Se usa cursor: pointer para indicar que es interactivo y position: relative para poder mover el contenedor si es necesario */
+      &__submenu-label {
+        width: 100%;
+        display: flex;
+        gap: 1.4rem;
+        font-size: 0.9rem;
+        cursor: pointer; 
+        align-items: center; 
+        text-align: start;
+        justify-content: flex-start;
+        position: relative;
+      }
+     /*Estilos cuando el elemento tiene la clase active
+     Cuando el contenedor tiene la clase .active, se mueve hacia la izquierda con left: 0 y se vuelve visible al establecer display: block. */
+      &.active {
+        left: 0; /* Lo mueve a la izquierda para hacerlo visible */
+        display: block; /* Hacemos visible el sidebar cuando tiene la clase active */
+      }
+    }
   }
-  h3,h2{
-    text-align: start;
-    margin-left: 10px;
-    margin-top: 10px;
-  }
-  .filter-group__label{
-    margin-top: 15px;
-    margin-left: 10px;
-  }
-  .color-circle {
-    width: 15px;
-    height: 15px;
-    margin-right: 25px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-left: auto;
-    border: 1px solid #ccc;
-  }
-  // body {
-  //   overflow: hidden; 
-  // }
-  .btn-filtrar {
-    display: block!important;  
-  }
-  .close-filter-btn {
-    background-color: #000!important;
-    width: 100%;
-    border: none;
-    font-size: 1.6rem; /* Tamaño similar al de un h2 */
-    font-weight: bold;
-    color: white!important; /* Cambié el color a blanco para que se vea en el fondo rojo */
-    cursor: pointer;
-    padding: 10px 20px; /* Ajusté el padding para hacerlo más visible */
-    display: block; /* Hace que el botón se comporte como texto */
-    text-align: left; /* Alinea el texto a la izquierda */
-    margin-left: 0; /* Asegura que no haya margen izquierdo */
-  }
-  .close-filter-btn:hover {
-    color: #a50050!important; /* Puedes agregar un color al hacer hover si lo deseas */
-  }
-}
-
-
-
-

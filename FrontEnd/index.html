@@ -10,7 +10,7 @@
 <body class="grid-container no-sidebar body">
   <header class="header">
     <div class="logo-container">
-      <a href="index.html"><img src="assets/imagen/Logo3.png" alt="Logo de la empresa" class="logo-container__img" ></a> 
+        <img src="/assets/imagen/Logo3.png" alt="Logo de la empresa" class="logo-container__img">
     </div>
     <input type="checkbox" id="menuToggle" class="menu-toggle">
     <label for="menuToggle" class="abrirmenu"><i class="bi bi-list"></i></label>
@@ -23,21 +23,13 @@
             <li class="navbar__item"><a class="navbar__link" href="#contact">Contacto</a></li>
         </ul>
     </nav>
-   
 </header>
-<nav class="navbard">
-  <div class="navbard__container">
-      <form action="/rutabackend" method="GET" class="navbard__form">
-          <input type="text" placeholder="Buscar..." class="navbard__input" name="buttonbuscar">
-          <button type="submit" class="navbard__search-button"><i class="bi bi-search"></i></button>
-      </form>
-  </div>
-  <div class="Carrito">
-    <a href="carittovista.html" class="Carrito__link">
-      <i class="bi bi-bag-heart-fill Carrito__blanco"></i>
-    </a>
-  </div>
-</nav>
+    <nav class="navbard">
+        <div class="navbard__container">
+          <input type="text" placeholder="Buscar..." class="navbard__input">
+          <button class="navbard__search-button"><i class="bi bi-search"></i></button>
+        </div>
+    </nav>
     <main class="main">
       <section id="container-slider">	
         <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -142,7 +134,8 @@
     </div>
      
     </footer>
-    <script defer src="public/bundle.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="app.js"></script>
+    <script src="script.js"></script> 
 </body>
 </html>

@@ -44,14 +44,12 @@
 		/* Contenedor de imagen
 		Se asegura de que ocupe todo el ancho disponible.*/
 		width: 100%;
-		height: 100%;
 	}
 
 	&__imagen {
 		/* Imagen
 		Aplica un ancho del 100% y bordes redondeados de 10px.*/
 		width: 100%;
-		height: 100%;
 		border-radius: 10px;
 		box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); /* Sombra */
 	}
@@ -135,6 +133,26 @@
 				left: 10px;
 				background: #000;
 			}
+		}
+		/*Colores específicos
+		Cada opción de color tiene su propio estilo de color de fondo para el círculo (rojo, amarillo, verde, rosa, azul, violeta).*/
+		&--rojo::after {
+			background: #fd443d;
+		}
+		&--amarillo::after {
+			background: #d6d610;
+		}
+		&--Verde::after {
+			background: green;
+		}
+		&--Rosa::after {
+			background: pink;
+		}
+		&--Azul::after {
+			background: Blue;
+		}
+		&--Violeta::after {
+			background: violet;
 		}
 	}
 
