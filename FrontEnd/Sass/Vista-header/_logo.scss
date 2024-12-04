@@ -2,7 +2,7 @@
     width: 250px; // Ajusta según el tamaño deseado del logo
     height: auto; // Mantén la proporción de la imagen
     margin-bottom: -5px;
-    img {
+    &__img{
       display: flex;
       justify-content: center;
       align-items: center;

@@ -8,28 +8,28 @@
     <link rel="stylesheet" href="./public/bundle.css">
 </head>
 <body class="grid-container no-sidebar">
-    <header class="header">
-        <div class="logo-container">
-            <img src="/assets/imagen/Logo3.png" alt="Logo de la empresa">
-        </div>
-        <input type="checkbox" id="menuToggle" class="menu-toggle">
-        <label for="menuToggle" class="abrirmenu"><i class="bi bi-list"></i></label>
-        <nav class="nav">
-            <label for="menuToggle" class="cerrarmenu"><i class="bi bi-x-lg"></i></label>
-            <ul class="navbar__list">
-                <li class="navbar__item"><a class="navbar__link" href="index.html">Inicio</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="products.html">Productos</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="#about">Acerca</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="#contact">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-    <nav class="navbard">
-        <div class="container">
-            <input type="text" placeholder="Buscar..." class="inputb">
-            <button class="search-button"><i class="bi bi-search"></i></button>
-        </div>
+  <header class="header">
+    <div class="logo-container">
+        <img src="/assets/imagen/Logo3.png" alt="Logo de la empresa" class="logo-container__img">
+    </div>
+    <input type="checkbox" id="menuToggle" class="menu-toggle">
+    <label for="menuToggle" class="abrirmenu"><i class="bi bi-list"></i></label>
+    <nav class="nav">
+        <label for="menuToggle" class="cerrarmenu"><i class="bi bi-x-lg"></i></label>
+        <ul class="navbar__list">
+            <li class="navbar__item"><a class="navbar__link" href="index.html">Inicio</a></li>
+            <li class="navbar__item"><a class="navbar__link" href="products.html">Productos</a></li>
+            <li class="navbar__item"><a class="navbar__link" href="#about">Acerca</a></li>
+            <li class="navbar__item"><a class="navbar__link" href="#contact">Contacto</a></li>
+        </ul>
     </nav>
+</header>
+<nav class="navbard">
+  <div class="navbard__container">
+    <input type="text" placeholder="Buscar..." class="navbard__input">
+    <button class="navbard__search-button"><i class="bi bi-search"></i></button>
+  </div>
+</nav>
     <main class="main">
       <div class="breadcrumbs">
         <a href="/" class="breadcrumbs__link">Inicio</a>
@@ -65,21 +65,21 @@
 
       <div class="producto" id="producto" data-producto-id="1">
         <div class="producto__thumbs">
-          <img src="./img/thumbs/negro.jpg" alt="" class="producto__thumb-img" />
-          <img src="./img/thumbs/1.jpg" alt="" class="producto__thumb-img" />
-          <img src="./img/thumbs/2.jpg" alt="" class="producto__thumb-img" />
-          <img src="./img/thumbs/3.jpg" alt="" class="producto__thumb-img" />
-          <img src="./img/thumbs/4.jpg" alt="" class="producto__thumb-img" />
+          <img src="./assets/imagen/foto1.jpeg" alt="" class="producto__thumb-img" />
+          <!-- <img src="./img/thumbs/1.jpg" alt="" class="producto__thumb-img" /> -->
+          <!-- <img src="./img/thumbs/2.jpg" alt="" class="producto__thumb-img" /> -->
+          <!-- <img src="./img/thumbs/3.jpg" alt="" class="producto__thumb-img" /> -->
+          <!-- <img src="./img/thumbs/4.jpg" alt="" class="producto__thumb-img" /> -->
         </div>
         <div class="producto__contenedor-imagen">
-          <img src="./img/tennis/negro.jpg" alt="" class="producto__imagen" />
+          <img src="./assets/imagen/foto1.jpeg" alt="" class="producto__imagen" />
         </div>
         <div class="producto__contenedor-info">
-          <h1 class="producto__nombre">Estándar Converse de tenis.</h1>
-          <p class="producto__descripcion">Descripción del producto.</p>
+          <h1 class="producto__nombre">Conjunto Lencería Lace Collection.</h1>
+          <p class="producto__descripcion">Conjunto de lencería delicada con encaje floral. Incluye un sujetador de encaje y bragas a juego en colores pastel. Perfecto para una sensación de confort y elegancia.</p>
           <div class="producto__contenedor-propiedad">
             <p class="producto__propiedad">Precio</p>
-            <p class="producto__precio">$500.00</p>
+            <p class="producto__precio">$2,500.00</p>
           </div>
           <div class="producto__contenedor-propiedad" id="propiedad-color">
             <p class="producto__propiedad">Color</p>
@@ -127,6 +127,62 @@
                   Amarillo
                 </p>
               </label>
+              <!-- <label for="verde">
+                <input
+                  type="radio"
+                  class="producto__radio-input"
+                  name="color"
+                  id="verde"
+                  value="verde"
+                />
+                <p
+                  class="producto__radio-texto producto__radio-texto--color producto__radio-texto--Verde"
+                >
+                  Verde
+                </p>
+              </label>
+              <label for="rosa">
+                <input
+                  type="radio"
+                  class="producto__radio-input"
+                  name="color"
+                  id="rosa"
+                  value="rosa"
+                />
+                <p
+                  class="producto__radio-texto producto__radio-texto--color producto__radio-texto--Rosa"
+                >
+                  Rosa
+                </p>
+              </label>
+              <label for="azul">
+                <input
+                  type="radio"
+                  class="producto__radio-input"
+                  name="color"
+                  id="azul"
+                  value="azul"
+                />
+                <p
+                  class="producto__radio-texto producto__radio-texto--color producto__radio-texto--Azul"
+                >
+                  Azul
+                </p>
+              </label>
+              <label for="violeta">
+                <input
+                  type="radio"
+                  class="producto__radio-input"
+                  name="color"
+                  id="violeta"
+                  value="violeta"
+                />
+                <p
+                  class="producto__radio-texto producto__radio-texto--color producto__radio-texto--Violeta"
+                >
+                  Violeta
+                </p>
+              </label> -->
             </div>
           </div>
           <div class="producto__contenedor-propiedad" id="propiedad-tamaño">
@@ -206,7 +262,7 @@
             </button>
           </div>
           <button type="submit" class="producto__btn-carrito" id="agregar-al-carrito">
-            Agregar al carrito
+             Enviar Mensaje Whatsapp
           </button>
         </div>
       </div>

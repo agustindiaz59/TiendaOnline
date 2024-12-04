@@ -1,16 +1,16 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 #container-slider
 {
+    /* Contenedor del Slider
+    Este bloque configura un contenedor para un slider, asegurando que ocupe todo el ancho disponible. Su posición es relativa, lo que permite la manipulación de elementos dentro de él. Además, se le asigna un z-index de 1 para establecer su nivel de apilamiento en relación con otros elementos. */
     position: relative;
     display: block;
     width: 100%;
     z-index: 1;
 }
 #slider {
+    /*Slider Principal
+   Este bloque define un slider que ocupa el 100% del ancho y una altura que varía según el tamaño de la pantalla, con un mínimo de 500px. Tiene una posición relativa para facilitar la manipulación de elementos dentro de él. El z-index asegura que el slider quede en el fondo de otros elementos apilados. */
     position: relative;
     display: block;
     width: 100%;
@@ -19,6 +19,8 @@
     z-index: 1; /* Slider en el fondo */
 }
 #slider li {
+    /*Estilo para los elementos del Slider
+    Este bloque aplica a los elementos <li> del slider, asegurando que las imágenes de fondo se ajusten y se centren. Los elementos se posicionan de forma absoluta para cubrir todo el área del slider, con una transición suave de opacidad de 1 segundo. Su opacidad inicial es 0, lo que los hace invisibles hasta que se les cambia la opacidad, y se colocan detrás de otros elementos con un z-index de -1. */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -37,6 +39,8 @@
     opacity: 0;
 }
 #container-slider .arrowPrev, #container-slider .arrowNext{
+    /*Flechas del slider
+    Estiliza las flechas con tamaño grande, color translúcido, posición absoluta y centrado vertical. */
     font-size: 30pt;
     color: rgba(204, 204, 204, 0.65);
     cursor: pointer;
@@ -46,10 +50,14 @@
     z-index: 2; 
 }
 #container-slider .arrowNext {
+    /* Flecha siguiente
+    Ajusta la posición de la flecha derecha al margen derecho con prioridad. */
     left: initial;
     right: 50px !important;
 }
 .content_slider{
+    /*Contenido del slider
+    Define el diseño del contenido dentro del slider, asegurando espaciado interno, color de texto blanco, y ocupando todo el ancho y alto disponibles. */
     padding: 15px 30px;
     color: #FFF;
     width: 100%;
@@ -59,6 +67,8 @@
     text-align: center;
 }
 .content_slider h2{
+    /* Título del contenido del slider
+    Estiliza los encabezados dentro del slider con fuente Arial, tamaño grande, espaciado entre letras, texto en mayúsculas, y un margen inferior para separar elementos. */
     font-family: 'arial';
     font-size: 30pt;
     letter-spacing: 1px;
@@ -66,6 +76,8 @@
     margin-bottom: 20px;
 }
 .content_slider p {
+    /* Descripción del contenido del slider
+    Aplica estilo a los párrafos del slider con fuente Arial, tamaño de texto moderado, color blanco, y margen inferior para espaciar elementos. */
     font-size: 15pt;
     font-family: 'arial';
     color: #FFF;
@@ -76,6 +88,8 @@
     padding: 10px 125px;
 }
 .content_slider{
+    /* Centrado del contenido del slider
+    Configura el contenedor del slider para centrar su contenido tanto horizontal como verticalmente, utilizando propiedades de flexbox con soporte para navegadores antiguos. */
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
@@ -85,6 +99,8 @@
     align-items: center;
 }
 .btnSlider{
+    /* Botón estilizado para el slider
+    Diseña un botón atractivo con tipografía legible, bordes redondeados y un fondo semitransparente. Incluye una transición suave al interactuar con él. */
     color: #FFF;
     font-size: 15pt;
     font-family: 'arial';
@@ -101,6 +117,8 @@
     border: 1px solid #111;
 }
 .listslider {
+    /* Indicadores del slider
+    Estiliza una lista de indicadores para el slider, ubicada en la parte inferior y centrada horizontalmente. Usa flexbox para distribuirlos uniformemente y asegurar una apariencia ordenada. */
     position: absolute;
     display: -webkit-flex;
     display: -moz-flex;
@@ -116,6 +134,8 @@
     transform: translateX(-50%);
 }
 .listslider li {
+    /* Puntos de navegación del slider
+    Define cada elemento de la lista como un círculo pequeño interactivo, con un tamaño uniforme y espaciado consistente, para usarlos como indicadores del slider. */
     border-radius: 50%;
     width: 10px;
     height: 10px;
@@ -123,13 +143,15 @@
     margin: 0 5px;
 }
 .listslider li a {
+    /* Enlaces de los puntos de navegación del slider
+    Estiliza los enlaces dentro de los puntos de navegación con un fondo gris claro y forma circular, garantizando que ocupen todo el espacio del contenedor. */
     background: #CCC;
     border-radius: 50%;
     width: 100%;
     height: 100%;
     display: block;
 }
-.item-select-slid {
+.item-select-slid { // Ciruclos Blancos
     background: #FFF  !important;
 }
 

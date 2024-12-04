@@ -1,13 +1,11 @@
 /* Diseño del grid */
 .grid-container > * {
-    // box-shadow: 10px 6px 37px -13px rgba(51, 51, 51, 0.74);
-    // border-radius: 10px;
     padding: 20px;
     text-align: center;
     font-weight: 500;
 }
 
-.header {
+.header { 
     grid-area: header;
     background-color: #252424;
     display: flex;
@@ -15,12 +13,14 @@
     justify-content: space-between;
 }
 
-.sidebar {
-    grid-area: sidebar;
-    background-color: rgba(77, 237, 106, 0.74);
+.sidebard {
+    grid-area: sidebard;
+    background-color: transparent;
 }
 
 .main {
+    padding: 0;
+    padding-top: 10px;
     grid-area: main;
     background-color: #f4f4f4;
 }
@@ -38,13 +38,15 @@
 /* Media queries para diferentes tamaños de pantalla */
 @media (min-width: 320px) {
     .grid-container {
+        /* Estilo para el contenedor de la cuadrícula
+        Este contenedor usa grid para organizar sus elementos en un diseño estructurado. Establece un espacio de 20px entre las filas y columnas (gap). La propiedad grid-template define la estructura con filas de diferentes tamaños, como un header de 100px de alto, y luego filas automáticas para navbard, main, sidebard y footer. */
         display: grid;
         gap: 20px;
         grid-template:
             "header " 100px
-            "navbard" 30px
+            "navbard" auto
             "main " auto
-            "sidebar" 50px
+            "sidebard" auto
             "footer " auto;
     }
 
@@ -54,10 +56,10 @@
     .no-sidebar{
         grid-template:
             "header" 100px
-            "navbard" 30px
+            "navbard" auto
             "main" auto
-            "sidebar" auto
-            "footer" auto; // Elimina el sidebar aquí
+            "sidebard" auto
+            "footer" auto; 
     }
   
 }
@@ -69,6 +71,7 @@
             "header header header" 100px
             "navbard navbard navbard" 50px
             "main main main" auto
+            "sidebard sidebard sidebard" auto 
             "footer footer footer" auto / 200px auto 200px;
     }
     .no-sidebar{
@@ -76,7 +79,8 @@
             "header header header" 100px
             "navbard navbard navbard" 50px
             "main main main" auto
-            "sidebar sidebar sidebar" auto 
+            "sidebard sidebard sidebard" auto 
             "footer footer footer" auto / 200px auto 200px;
     }
 }
+
