@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -20,6 +19,12 @@ import java.util.Set;
 @Controller
 public class ProductoControlador {
 
+    /**
+     * Sección de atributos
+     *
+     * Spring se encarga de la inyeccion de dependencias, es decir, decidir que clases instanciar
+     * dentro de los atributos
+     */
     @Autowired
     private ProductoService productoService;
 
@@ -33,8 +38,12 @@ public class ProductoControlador {
     private ColorService colorService;
 
 
-
-
+    /**
+     * Ruta utilizada solo para crear productos de prueba
+     *
+     * @deprecated
+     * @return Lista de productos actualizada
+     */
     @GetMapping("/crearProductos")
     public String crearProductos(){
         Producto p = new Producto();
@@ -70,7 +79,14 @@ public class ProductoControlador {
 
 
 
-    //@Transactional//Donde creas o traes los productos necesitas transaccional para que los cambios surtan efecto
+
+    /**
+     * Ruta donde se mostraran todos los productos disponibles, además de colores,
+     * talla y otros criterios de busqueda
+     *
+     * @param modelo Interfaz que representa el DOM de HTML
+     * @return Listado de productos disponibles
+     */
     @GetMapping("/products")
     public String listaDeProductos(Model modelo){
         List<Producto> productos = productoService.traerTodosConImagenes();
@@ -89,6 +105,8 @@ public class ProductoControlador {
 
 
     /**
+     * Ruta donde se mostará la informacion de un producto en particular
+     *
      * @param modelo Interfaz para el modelo del DOM utilizado por las vistas
      * @param nombre Nombre del producto solicitado
      * @return Vista con los datos del producto solicitado
@@ -96,7 +114,8 @@ public class ProductoControlador {
     @GetMapping("/vistaproducts")
     public String detalleDeProducto(Model modelo, @RequestParam("n") String nombre){
 
-        nombre = nombre.replace('+',' '); //TODO Cambiar por equivalente inverso en la vista
+        //Convierto los + en espacios en blanco desde la url
+        nombre = nombre.replace('+',' ');
         Producto p = productoService.traerConTodo(nombre);
 
         modelo.addAttribute("producto",p);

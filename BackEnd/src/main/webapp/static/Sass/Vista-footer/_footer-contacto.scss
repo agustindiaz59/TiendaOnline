@@ -1,0 +1,90 @@
+.footer {
+    /*footer
+    Contenedor flexible que ocupa el 100% del ancho de la página y centra su contenido, ajustándose verticalmente. Tiene un fondo gris claro y organiza sus elementos con un espacio entre ellos. El uso de overflow: auto asegura que si el contenido es demasiado grande, se podrá desplazar horizontalmente. */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #f8f8f8;
+    align-items: center;
+    gap: 150px;
+    overflow: auto;
+    .text__raro{
+        /* Aplica un alineado del texto a la izquierda, establece el tamaño de la fuente en 1rem y fija el ancho del contenedor en 300px. Esto asegura que el texto se ajuste a esa anchura y esté alineado al inicio del contenedor. */
+        text-align: start;
+        font-size: 1rem;
+        width: 300px;
+    }
+    .textinfo{
+       &__title{
+        /* Aplica un tamaño de fuente de 2rem y alinea el texto al inicio del contenedor */
+        font-size: 2rem;
+        text-align: start;
+       }
+       &__text{
+        /*  Aplica un tamaño de fuente de 1rem y también alinea el texto al inicio del contenedor, utilizado para los párrafos o contenido textual.*/
+          font-size: 1rem;
+          text-align: start;
+       }
+    }
+    .web-social {
+        /* Estilo para íconos sociales
+        El contenedor usa Flexbox para organizar los íconos en una fila, los alinea al inicio en el eje horizontal y los centra verticalmente. Tiene una altura de 70px, sin márgenes ni rellenos adicionales, y los íconos se presentan sin puntos de lista. */
+        display: flex;
+        height: 70px;
+        justify-content: start;
+        align-items: center; // Alinea verticalmente los logos en el centro
+        flex-direction: row; // Asegura que los logos se pongan en una fila
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        &__item {
+            margin: 0 7px; // Ajustamo la IMG
+            a {
+                img {
+                    width: 35px; // Tamaños 
+                    height: 35px;
+                }
+            }
+        }
+    }
+    @media (min-width: 320px) and (max-width: 767px) {
+        flex-direction: column; // Cambia a disposición en columna
+        align-items: center; // Centra los elementos dentro de la columna
+        gap: 30px;
+        .text__raro{
+            text-align: center;
+            // list-style-type: none;
+            font-size: 1rem;
+        }
+        .textinfo{
+            width: 300px;
+           &__title{
+            font-size: 2rem;
+            text-align: center;
+           }
+           &__text{
+              font-size: 1rem;
+              text-align: center;
+           }
+        }
+        .web-social {
+            height: 60px;
+            justify-content: center;
+            &__item {
+                margin: 0 7px;
+                a {
+                    img {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+        }
+    }
+    
+    // Media query para pantallas de 768px en adelante
+    @media (min-width: 768px) {
+        flex-direction: row; // Vuelve a disposición en fila (row)
+    }
+}
+

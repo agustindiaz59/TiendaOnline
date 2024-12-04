@@ -23,13 +23,25 @@ public class UsuarioControlador {
         return "login";
     }
 
-    //Seccion para registro de nuevos usuarios
-
+    /**
+     * Ruta para registro de nuevos usuarios
+     *
+     * @return formulario de registro
+     * */
     @GetMapping("/registro")
-    public String registrarUsuario(@ModelAttribute("usuario") UsuarioDTO usuario){
+    public String registrarUsuario(){//@ModelAttribute("usuario") UsuarioDTO usuario){
         return "registro";
     }
 
+
+
+    /**
+     * Ruta que recibe el formulario de registro y lo registra en la base de datos
+     *
+     * @param usuario Datos del formulario que representan los datos del usuario
+     * @return Redirecciona a la pagina principal ya con cookies de session validadas
+     *
+     */
     @PostMapping("/registrar")
     public String registro(UsuarioDTO usuario){
 

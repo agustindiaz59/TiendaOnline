@@ -19,12 +19,12 @@ public class EjemploUserDetailsService implements UserDetailsService {
 
 
     /**
-     Este metodo utiliza spring para buscar el usuario en la base de datos o repositorio
-     Se usa en conjunto a DaoAuthenticationProvider
-     @see org.springframework.security.authentication.dao.DaoAuthenticationProvider
-
-     @param username el nombre de usuario, email o campo por el cual se buscara coincidencia
-     @return UserDetails objeto que representa un usuario, con los datos de la BBDD
+     * Este metodo utiliza spring para buscar el usuario en la base de datos o repositorio
+     * Se usa en conjunto a DaoAuthenticationProvider
+     * @see org.springframework.security.authentication.dao.DaoAuthenticationProvider
+     *
+     * @param username el nombre de usuario, email o campo por el cual se buscara coincidencia
+     * @return UserDetails objeto que representa un usuario, con los datos de la BBDD
      **/
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

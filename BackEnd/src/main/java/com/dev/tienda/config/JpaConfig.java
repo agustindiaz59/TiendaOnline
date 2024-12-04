@@ -48,6 +48,8 @@ public class JpaConfig {
     private String password;
 
     /**
+     * DataSource es una abstraccion que contiene
+     * los datos necesarios para la coneccion a la base de datos
      *
      * @return Datasource objeto que representa una conexion a la base de datos, con todos los datos correspondientes
      */
@@ -63,6 +65,7 @@ public class JpaConfig {
 	}
 
 
+
     /**
      * Necesario como interfaz principal de spring JPA para manejar las transacciones
      *
@@ -74,6 +77,7 @@ public class JpaConfig {
         transactionManager.setEntityManagerFactory(emf);
         return transactionManager;
     }
+
 
 
     /**

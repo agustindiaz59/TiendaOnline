@@ -17,7 +17,7 @@ import org.thymeleaf.templatemode.TemplateMode;
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
 
-    //Thymeleaf core
+    //--------------------Thymeleaf core---------------------------//
 	@Bean
     public SpringResourceTemplateResolver templateResolver(){
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
@@ -44,8 +44,10 @@ public class WebConfig implements WebMvcConfigurer {
         viewResolver.setTemplateEngine(templateEngine());
         return viewResolver;
     }
+    //-------------------------------------------------------------//
 
-    //Manejadores de recursos
+
+    //-------------------Manejadores de recursos-------------------//
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
     	registry.addResourceHandler("/assets/**").addResourceLocations("/static/assets/");
@@ -56,5 +58,6 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/favicon.ico").addResourceLocations("/static/favicon.ico");
         registry.addResourceHandler("/img/**").addResourceLocations("/static/img/");
     }
+    //------------------------------------------------------------//
 
 }

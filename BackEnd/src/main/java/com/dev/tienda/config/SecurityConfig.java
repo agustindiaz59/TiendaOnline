@@ -18,7 +18,6 @@ import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 /**
  * El proceso de spring security para verificar un usuario es:
- *
  * SecurityFilterChain.formLogin(.loginPage("/ejemplo")) --> formulario de login --> SecurityFilterChain.formLogin(.loginProcessingUrl("/login")) POST --> AuthenticationManager --> AuthenticationProvider -> UserDetailsService
  * pagina protegida + JSSESIONID / pagina error de credenciales <-- SecurityFilterChain.formLogin(.loginSucess/failure()) <-- AuthenticationManager <-- coincide las credenciales? s/n <-- UserDetails
  *
@@ -34,7 +33,8 @@ public class SecurityConfig extends AbstractSecurityWebApplicationInitializer { 
     private UsuarioUserDetailsService usuarioUserDetailsService;
 
     /**
-     * Aqui estan las configuraciones generales de la aplicacion como rutas, formularios de login y logout, csrf y otras opciones
+     * Aqui estan las configuraciones generales de la aplicacion como rutas,
+     * formularios de login y logout, csrf y otras opciones
      *
      * @param http objeto inyectado para configurar spring security
      */
@@ -112,17 +112,21 @@ public class SecurityConfig extends AbstractSecurityWebApplicationInitializer { 
     }
 
 
-    // Usar en caso de no tener un UserDetailsService propio
-    //    @Bean
-    //    @Autowired
-    //    public UserDetailsManager userDetailsManager(DataSource dataSource){
-    //        return new JdbcUserDetailsManager(dataSource).;
-    //    }
+    /*
 
-    // Este bean es un wrapper de authManager para configurar las validaciones de usuario, opcional para detalle fino
-    // @Bean
-    // public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
-    //     return authConfig.getAuthenticationManager();
-    // }
+     //Usar en caso de no tener un UserDetailsService propio
+     @Bean
+     @Autowired
+     public UserDetailsManager userDetailsManager(DataSource dataSource){
+         return new JdbcUserDetailsManager(dataSource).;
+     }
+
+     //Este bean es un wrapper de authManager para configurar las validaciones de usuario, opcional para detalle fino
+     @Bean
+     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
+         return authConfig.getAuthenticationManager();
+     }
+
+     */
 
 }
