@@ -1,6 +1,7 @@
 package com.dev.tienda.repositorios;
 
 import com.dev.tienda.modelos.Producto;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -39,27 +40,28 @@ public interface IProductoRepository extends JpaRepository<Producto,Long> {
     @Query("SELECT p FROM Producto p")
     List<Producto> findAllWithAll();
 
-    //Metodos paginables
+    //TODO Limpiar metodos inecesarios
+
+    //---------------Metodos paginables-----------------//
     @EntityGraph(attributePaths = {"imagenes"})
     @Query("SELECT p FROM Producto p")
-    List<Producto> findAllWithImages(Pageable page);
+    Page<Producto> findAllWithImages(Pageable page);
 
     @EntityGraph(attributePaths = "colores")
     @Query("SELECT p FROM Producto p")
-    List<Producto> findAllWithColors(Pageable page);
+    Page<Producto> findAllWithColors(Pageable page);
 
     @EntityGraph(attributePaths = "categorias")
     @Query("SELECT p FROM Producto p")
-    List<Producto> findAllWithCategories(Pageable page);
+    Page<Producto> findAllWithCategories(Pageable page);
 
     @EntityGraph(attributePaths = "tallas")
     @Query("SELECT p FROM Producto p")
-    List<Producto> findAllWithTallas(Pageable page);
+    Page<Producto> findAllWithTallas(Pageable page);
 
     @EntityGraph(attributePaths = {"imagenes", "colores", "categorias", "tallas"})
     @Query("SELECT p FROM Producto p")
-    List<Producto> findAllWithAll(Pageable page);
+    Page<Producto> findAllWithAll(Pageable page);
 
     Optional<Producto> findByNombre(String nombre);
-
 }

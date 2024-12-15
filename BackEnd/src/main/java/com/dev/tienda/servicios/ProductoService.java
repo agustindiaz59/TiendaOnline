@@ -2,7 +2,9 @@ package com.dev.tienda.servicios;
 
 import com.dev.tienda.modelos.*;
 import com.dev.tienda.repositorios.*;
+import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +16,6 @@ public class ProductoService {
 
     @Autowired
     private IProductoRepository productoRepository;
-
     @Autowired
     private CategoriaService categoriaService;
     @Autowired
@@ -26,53 +27,22 @@ public class ProductoService {
 
 
 
+    //---------------Metodos con retorno unico---------------//
     @Transactional
     public void guardar(Producto entity) {
-
         productoRepository.save(contextualizar(entity));
-
-
-        /*Verifica si ya existe un producto por su nombre
-        Optional<Producto> aGuardar = productoRepository.findByNombre(entity.getNombre());
-
-        if(aGuardar.isPresent()){
-           aGuardar.get().setNombre(entity.getNombre());
-           aGuardar.get().setPrecio(entity.getPrecio());
-           aGuardar.get().setDescripcion(entity.getDescripcion());
-           aGuardar.get().setColores(entity.getColores());
-           aGuardar.get().setTallas(entity.getTallas());
-           aGuardar.get().setImagenes(entity.getImagenes());
-           aGuardar.get().setCategorias(entity.getCategorias());
-        }
-
-        //Si ya existe lo actualiza, si no lo guarda como uno nuevo (upsert)
-        productoRepository.save(aGuardar.orElse(entity));
-
-         */
-    }
-
-    public List<Producto> traerTodosConImagenes(){
-        return productoRepository.findAllWithImages();
-    }
-
-    public List<Producto> traerTodosConImagenes(Pageable pageable){
-        return productoRepository.findAllWithImages(pageable);
     }
 
     public Producto traerConTodo(String nombre){
         return productoRepository.findWithAll(nombre).orElse(null);
     }
 
-
-    public List<Producto> traerTodos() {
-        return productoRepository.findAll();
-    }
-
     public Producto traer(String nombre){
         return productoRepository.findByNombre(nombre).orElse(null);
     }
 
-    private Producto contextualizar(Producto producto){
+
+    private Producto contextualizar(@NonNull Producto producto){
         Producto contexto = productoRepository.findByNombre(producto.getNombre()).orElse(producto);
 
         contexto.setColores(colorService.contextualizar(producto.getColores()));
@@ -81,5 +51,21 @@ public class ProductoService {
         contexto.setImagenes(imagenService.contextualizar(producto.getImagenes()));
 
         return contexto;
+    }
+
+    //---------------Metodos con listas---------------//
+    public List<Producto> traerTodos() {
+        return productoRepository.findAll();
+    }
+
+    public List<Producto> traerTodosConImagenes(){
+        return productoRepository.findAllWithImages();
+    }
+
+
+    //---------------Metodos Paginables---------------//
+
+    public Page<Producto> traerTodosConImagenes(Pageable pageable){
+        return productoRepository.findAllWithImages(pageable);
     }
 }

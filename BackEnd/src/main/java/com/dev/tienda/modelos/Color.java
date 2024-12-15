@@ -1,14 +1,11 @@
 package com.dev.tienda.modelos;
 
 import com.dev.tienda.dto.ColorDTO;
-import com.dev.tienda.repositorios.IColorRepository;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Persistable;
 
 import java.util.LinkedHashSet;
 import java.util.Objects;

@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -36,6 +37,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 @EnableJpaRepositories("com.dev.tienda.repositorios")// Especial para @Repository
 @ComponentScan({"com.dev.tienda.modelos","com.dev.tienda.dto"})
 @EnableTransactionManagement(proxyTargetClass = true)
+@EnableSpringDataWebSupport //Soportar paginacion web
 @PropertySource("classpath:ApplicationProperties.txt")//Traigo los datos de la BBDD desde un archivo externo
 //@ComponentScan("com.dev.tienda")
 public class JpaConfig {

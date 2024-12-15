@@ -1,4 +1,7 @@
 package com.dev.tienda.dto;
 
-public record UsuarioDTO(String nombre, String contrasenia) {
+public record UsuarioDTO(
+        String nombre,
+        String contrasenia
+) {
 }

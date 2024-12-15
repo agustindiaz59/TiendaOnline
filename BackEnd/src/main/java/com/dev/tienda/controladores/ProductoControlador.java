@@ -9,6 +9,9 @@ import com.dev.tienda.servicios.ProductoService;
 import com.dev.tienda.servicios.TallaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -92,8 +95,9 @@ public class ProductoControlador {
      * @return Listado de productos disponibles
      */
     @GetMapping("/products")
-    public String listaDeProductos(Model modelo){
-        List<Producto> productos = productoService.traerTodosConImagenes();
+    public String listaDeProductos(Model modelo,
+                                   @PageableDefault(page = 0, size = 10) Pageable pagina){
+        Page<Producto> productos = productoService.traerTodosConImagenes(pagina);
         List<Categoria> categorias = categoriaService.traerTodos();
         List<Color> colores = colorService.traerTodos();
         List<Talla> tallas = tallaService.traerTodos();
@@ -116,7 +120,8 @@ public class ProductoControlador {
      * @return Vista con los datos del producto solicitado
      */
     @GetMapping("/vistaproducts")
-    public String detalleDeProducto(Model modelo, @RequestParam("n") String nombre){
+    public String detalleDeProducto(Model modelo,
+                                    @RequestParam("n") String nombre){
 
         //Convierto los + en espacios en blanco desde la url
         nombre = nombre.replace('+',' ');
@@ -156,5 +161,6 @@ public class ProductoControlador {
 
         return "index";
     }
+
 
 }

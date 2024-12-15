@@ -39,6 +39,10 @@ public class Producto {
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private String nombre;
 
+    @Column
+    @JdbcTypeCode(SqlTypes.INTEGER)
+    private Integer stock;
+
 
 
     //-------------Relaciones-----------------------
@@ -92,6 +96,11 @@ public class Producto {
 
 
     //-------------Metodos-----------------------
+
+    //Metodos de stock
+    public Boolean enStock(){
+        return stock > 0;
+    }
 
     //Metodos de imagenes
     public void agregarImagen(Imagen img){
@@ -156,6 +165,4 @@ public class Producto {
     public int hashCode() {
         return Objects.hash(id, precio, descripcion, nombre);
     }
-
-
 }
