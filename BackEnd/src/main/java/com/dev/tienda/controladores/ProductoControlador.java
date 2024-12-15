@@ -1,15 +1,19 @@
 package com.dev.tienda.controladores;
 
+import com.dev.tienda.dto.ProductoDTO;
 import com.dev.tienda.modelos.*;
 import com.dev.tienda.modelos.Color;
 import com.dev.tienda.servicios.CategoriaService;
 import com.dev.tienda.servicios.ColorService;
 import com.dev.tienda.servicios.ProductoService;
 import com.dev.tienda.servicios.TallaService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.LinkedHashSet;
@@ -121,6 +125,36 @@ public class ProductoControlador {
         modelo.addAttribute("producto",p);
 
         return "vistaproducts";
+    }
+
+    /**
+     * Ruta que envia el formulario para crear un producto
+     */
+    @GetMapping("/guardar")
+    public String formularioProducto(Model modelo){
+        List<Producto> productos = productoService.traerTodosConImagenes();
+        List<Categoria> categorias = categoriaService.traerTodos();
+        List<Color> colores = colorService.traerTodos();
+        List<Talla> tallas = tallaService.traerTodos();
+
+        modelo.addAttribute("productos",productos);
+        modelo.addAttribute("categorias", categorias);
+        modelo.addAttribute("colores", colores);
+        modelo.addAttribute("tallas", tallas);
+
+        return "nuevoProducto";
+    }
+
+    @PostMapping("/guardar")
+    public String guardarProducto(@Valid ProductoDTO productoDTO, BindingResult bindingResult){
+
+        System.out.println(productoDTO);
+        if(bindingResult.hasErrors()){
+            System.out.println("Datos ingresados invalidos");
+            return "redirect:guardar";
+        }
+
+        return "index";
     }
 
 }

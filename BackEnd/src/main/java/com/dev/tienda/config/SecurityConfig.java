@@ -19,7 +19,7 @@ import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 /**
  * El proceso de spring security para verificar un usuario es:
  * SecurityFilterChain.formLogin(.loginPage("/ejemplo")) --> formulario de login --> SecurityFilterChain.formLogin(.loginProcessingUrl("/login")) POST --> AuthenticationManager --> AuthenticationProvider -> UserDetailsService
- * pagina protegida + JSSESIONID / pagina error de credenciales <-- SecurityFilterChain.formLogin(.loginSucess/failure()) <-- AuthenticationManager <-- coincide las credenciales? s/n <-- UserDetails
+ * pagina protegida + JSESSIONID / pagina error de credenciales <-- SecurityFilterChain.formLogin(.loginSucess/failure()) <-- AuthenticationManager <-- coincide las credenciales? s/n <-- UserDetails
  *
  * @author matias
  * @version 1.0
@@ -57,7 +57,8 @@ public class SecurityConfig extends AbstractSecurityWebApplicationInitializer { 
                         .requestMatchers("/script.js").permitAll()
                         .requestMatchers("/app.js").permitAll()
                         .requestMatchers("/img/**").permitAll()
-                        .anyRequest().denyAll()
+                        .requestMatchers("/sidebardcerraryabrir.js").permitAll()
+                        .anyRequest().permitAll()
                 )
                 .exceptionHandling(exception -> exception //Se encarga de redirecciones y establecer codigos de error HTTP
                         .accessDeniedHandler(new CustomAccesDeniedHandler())

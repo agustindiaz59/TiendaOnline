@@ -101,7 +101,7 @@ thumbs.addEventListener('click', (e) => {
 		const nombreImagen = imagenSrc.substring(lastIndex + 1);
 
 		// Cambiamos la imagen principal del producto con la miniatura seleccionada
-		productoImagen.src = `./img/tennis/${nombreImagen}`;
+		productoImagen.src = `./assets/imagen/${nombreImagen}`;
 	}
 });
 

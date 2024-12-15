@@ -25,10 +25,10 @@
     </nav>
 </header>
 <nav class="navbard">
-  <div class="navbard__container">
+  <form class="navbard__container">
     <input type="text" placeholder="Buscar..." class="navbard__input">
     <button class="navbard__search-button"><i class="bi bi-search"></i></button>
-  </div>
+  </form>
 </nav>
     <main class="main">
       <div class="breadcrumbs">
@@ -66,10 +66,10 @@
       <div class="producto" id="producto" data-producto-id="1" th:object="${producto}">
         <div class="producto__thumbs">
           <img th:src="'/assets/imagen/' + ${imagen.src}" th:each="imagen : *{imagenes}" alt="" class="producto__thumb-img" />
-          <img src="./img/thumbs/1.jpg" alt="" class="producto__thumb-img" />
-          <img src="./img/thumbs/2.jpg" alt="" class="producto__thumb-img" />
-          <img src="./img/thumbs/3.jpg" alt="" class="producto__thumb-img" />
-          <img src="./img/thumbs/4.jpg" alt="" class="producto__thumb-img" />
+          <img src="./assets/imagen/bralete.jpg" alt="" class="producto__thumb-img" />
+          <img src="./assets/imagen/bralete2.jpg" alt="" class="producto__thumb-img" />
+          <img src="./assets/imagen/bralete3.jpg" alt="" class="producto__thumb-img" />
+          <img src="./assets/imagen/bustier.jpg" alt="" class="producto__thumb-img" />
         </div>
         <div class="producto__contenedor-imagen">
           <img th:src="'/assets/imagen/' + *{imagenes.iterator().next().src}" alt="" class="producto__imagen" />
@@ -176,7 +176,7 @@
             </button>
           </div>
           <button type="submit" class="producto__btn-carrito" id="agregar-al-carrito">
-            Agregar al carrito
+            Enviar a WhatsApp
           </button>
         </div>
       </div>
@@ -189,22 +189,22 @@
         <p  class="textinfo__text">Dirección: Pasaje lebhenson 89</p>
         <ul class="web-social">
             <li class="web-social__item">
-              <a href="https://www.twitch.tv/doriandesings">
+              <a href="">
                 <img src="/assets/imagen/youtube-logo.png" alt="youtube logo" class="web-social__logo"/>
               </a>
             </li>
             <li class="web-social__item">
-              <a href="https://www.instagram.com/dorian_desings/?hl=es">
+              <a href="">
                 <img src="/assets/imagen/instagram-logo.png" alt="instagram logo" class="web-social__logo" />
               </a>
             </li>
             <li class="web-social__item">
-                <a href="https://twitter.com/home?lang=es">
+                <a href="">
                 <img src="/assets/imagen/twitter-logo.png" alt="twitter logo" class="web-social__logo" />
               </a>
             </li>
             <li class="web-social__item">
-              <a href="https://www.youtube.com/c/DorianDesings/?sub_confirmation=1">
+              <a href="">
                 <img src="/assets/imagen/twitch-logo.png" alt="twitch logo" class="web-social__logo" />
               </a>
             </li>

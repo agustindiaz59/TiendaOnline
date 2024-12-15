@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class ProductoService {
@@ -27,9 +25,6 @@ public class ProductoService {
     private TallaService tallaService;
 
 
-
-    //TODO Relacionar los metodos de servicio para verificar la existencia de los
-    // elementos en el contexto de persistencia
 
     @Transactional
     public void guardar(Producto entity) {

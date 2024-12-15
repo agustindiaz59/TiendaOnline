@@ -57,6 +57,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/app.js").addResourceLocations("/static/app.js");
         registry.addResourceHandler("/favicon.ico").addResourceLocations("/static/favicon.ico");
         registry.addResourceHandler("/img/**").addResourceLocations("/static/img/");
+        registry.addResourceHandler("/sidebardcerraryabrir.js").addResourceLocations("/static/sidebardcerraryabrir.js");
     }
     //------------------------------------------------------------//
 

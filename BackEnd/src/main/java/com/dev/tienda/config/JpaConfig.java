@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Properties;
 import javax.sql.DataSource;
 
+import jakarta.validation.Validator;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -22,6 +23,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 import jakarta.persistence.EntityManagerFactory;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 
 /**
@@ -91,7 +93,8 @@ public class JpaConfig {
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(
             HibernateJpaVendorAdapter vendorAdapter,
-            @Qualifier("hibernateProperties") Properties hibernateProperties) {
+            @Qualifier("hibernateProperties")
+            Properties hibernateProperties) {
 
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
@@ -130,5 +133,11 @@ public class JpaConfig {
             throw new RuntimeException(e);
         }
         return hibernateProperties;
+    }
+
+
+    @Bean
+    public Validator validator() {
+        return new LocalValidatorFactoryBean();
     }
 }

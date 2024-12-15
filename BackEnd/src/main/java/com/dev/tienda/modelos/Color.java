@@ -1,5 +1,6 @@
 package com.dev.tienda.modelos;
 
+import com.dev.tienda.dto.ColorDTO;
 import com.dev.tienda.repositorios.IColorRepository;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -64,7 +65,10 @@ public class Color {
         this.nombre = nombre;
     }
 
-
+    public Color(ColorDTO colorDTO) {
+        this.nombre = colorDTO.nombre();
+        this.htmlValue = colorDTO.htmlValue();
+    }
 
 
     //-------------Metodos-----------------------

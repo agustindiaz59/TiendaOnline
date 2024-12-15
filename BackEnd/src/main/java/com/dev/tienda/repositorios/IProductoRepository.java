@@ -13,7 +13,6 @@ import java.util.Optional;
 
 @Repository
 public interface IProductoRepository extends JpaRepository<Producto,Long> {
-    //TODO Agregar metodos EntityGraph para carga diferida en las demas relaciones
 
     @EntityGraph(attributePaths = {"imagenes", "colores", "categorias", "tallas"})
     @Query("SELECT p FROM Producto p WHERE p.nombre = :nombre")

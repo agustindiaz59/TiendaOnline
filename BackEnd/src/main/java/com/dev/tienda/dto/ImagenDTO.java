@@ -1,4 +1,6 @@
 package com.dev.tienda.dto;
 
-public record ImagenDTO(String src) {
+public record ImagenDTO(
+        String src
+) {
 }

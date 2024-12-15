@@ -1,5 +1,8 @@
 package com.dev.tienda.modelos;
 
+import com.dev.tienda.dto.CategoriaDTO;
+import com.dev.tienda.dto.ColorDTO;
+import com.dev.tienda.dto.ImagenDTO;
 import com.dev.tienda.dto.ProductoDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -72,8 +75,16 @@ public class Producto {
         descripcion = dto.descripcion();
         precio = dto.precio();
 
-        for(String src : dto.srcFotos()){
-            imagenes.add(new Imagen(src));
+        for(ImagenDTO imgDTO : dto.imagenes()){
+            imagenes.add(new Imagen(imgDTO));
+        }
+
+        for(ColorDTO colorDTO : dto.colores()){
+            colores.add(new Color(colorDTO));
+        }
+
+        for(CategoriaDTO categoriaDTO : dto.categorias()){
+            categorias.add(new Categoria(categoriaDTO));
         }
 
     }
