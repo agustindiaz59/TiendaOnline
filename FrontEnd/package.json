@@ -1,18 +1,25 @@
 {
-  "type":"module",
-  "name": "vesion-sass",
+  "type": "module",
+  "name": "frontend",
   "version": "1.0.0",
   "description": "",
-  "main": "home.js",
+  "main": "index.js",
+  "dependencies": {
+    "chokidar": "^4.0.1",
+    "immutable": "^4.3.7",
+    "readdirp": "^4.0.1",
+    "source-map-js": "^1.2.1"
+  },
+  "devDependencies": {
+    "rollup": "^4.29.1",
+    "sass": "^1.83.0"
+  },
   "scripts": {
+    "build": "rollup --watch --config",
     "sass": "sass --watch --style=compressed sass/index.scss public/bundle.css",
     "test": "echo \"Error: no test specified\" && exit 1"
-    
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "sass": "^1.79.4"
-  }
+  "license": "ISC"
 }

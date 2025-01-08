@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./public/bundle.css">
 </head>
-<body class="grid-container no-sidebar">
+<body class="grid-container no-sidebar body">
   <header class="header">
     <div class="logo-container">
-        <img src="/assets/imagen/Logo3.png" alt="Logo de la empresa">
+        <img src="/assets/imagen/Logo3.png" alt="Logo de la empresa" class="logo-container__img">
     </div>
     <input type="checkbox" id="menuToggle" class="menu-toggle">
     <label for="menuToggle" class="abrirmenu"><i class="bi bi-list"></i></label>
@@ -25,9 +25,9 @@
     </nav>
 </header>
     <nav class="navbard">
-        <div class="container">
-            <input type="text" placeholder="Buscar..." class="inputb">
-            <button class="search-button"><i class="bi bi-search"></i></button>
+        <div class="navbard__container">
+          <input type="text" placeholder="Buscar..." class="navbard__input">
+          <button class="navbard__search-button"><i class="bi bi-search"></i></button>
         </div>
     </nav>
     <main class="main">
@@ -40,29 +40,29 @@
           <li><a itlist="itList_2" href="#"></a></li>
         </ul>
         <ul id="slider">
-          <li style="background-image: url('https://cdn.pixabay.com/photo/2020/04/15/11/20/telework-5046230_1280.jpg'); z-index:0; opacity: 1;">
+          <li style="background-image: url('https://d2r9epyceweg5n.cloudfront.net/stores/479/621/rte/tipos-de-lenceria.jpeg'); z-index:0; opacity: 1;">
             <div class="content_slider" >
               <div>
-                <h2>Emprendimiento empresarial</h2>
-            <p>Descubra en qué consiste el emprendimiento empresarial por medio de 5 estrategias fundamentales.</p>
+                <h2>Venta de Lencería</h2>
+            <p>Encuentre las mejores piezas de lencería que combinan estilo, comodidad y sensualidad. ¡Descubra nuestras colecciones exclusivas!</p>
             <a href="#" class="btnSlider">Ver más</a>
           </div>
             </div>
           </li>
-          <li style="background-image: url('https://cdn.pixabay.com/photo/2018/02/20/10/28/business-3167295_960_720.jpg'); ">
+          <li style="background-image: url('https://i.ytimg.com/vi/vaGIzyZynAc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCPBuXHcHfse5yeW0-hnZi5y3HYSg'); ">
             <div class="content_slider" >
               <div>
-                <h2>Negocios</h2>
-            <p>Recursos, guías, herramientas y consejos para emprender, crear tu empresa o iniciar un negocio exitoso</p>
+                <h2>Tu Tienda de Lencería</h2>
+            <p>Explora nuestra selección de lencería diseñada para realzar tu belleza y confianza. ¡Encuentra tu estilo perfecto!</p>
             <a href="#" class="btnSlider">Ver más</a>
           </div>
             </div>
           </li>
-          <li style="background-image: url('https://cdn.pixabay.com/photo/2015/07/17/22/42/typing-849806_960_720.jpg'); ">
+          <li style="background-image: url('https://i.ytimg.com/vi/POS2G0GTdj4/hq720_2.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAAlAADIQj0AgKJD8AEB-AG2CIACuAiKAgwIABABGGUgVChBMA8=&rs=AOn4CLAFM0bnR4pgaq58Okx7uyUSh8Hl0g'); ">
             <div class="content_slider" >
               <div>
-                <h2>Estrategias de negocio</h2>
-            <p>Las estrategias de negocio representan planes o métodos...</p>
+                <h2>Edición Limitada</h2>
+            <p>Accede a nuestra colección exclusiva de lencería premium. Diseños únicos, solo para ti.</p>
             <a href="#" class="btnSlider">Ver más</a>
           </div>
             </div>
@@ -70,7 +70,7 @@
        </ul>
      </section>
    </main>
-    <aside class="sidebar">
+    <aside class="sidebard">
       <div class="cuadrado">
         <div class="cuadrado__bro">
           <img src="./assets/imagen/foto1.jpeg" alt="Descripción de la imagen 1">
@@ -97,7 +97,7 @@
     </aside>
     <footer class="footer">
       <div class="textinfo">
-        <h3 class="textinfo__title">Contacto</h3>
+        <h3 class="textinfo__title" id="contact">Contacto</h3>
         <p  class="textinfo__text">Email: arayasuarezerika@gmail.com</p>
         <p  class="textinfo__text">Teléfono: 3873355251</p>
         <p  class="textinfo__text">Dirección: Pasaje lebhenson 89</p>
@@ -125,7 +125,7 @@
         </ul>
     </div>
         <div class="textinfo">
-            <h3 class="textinfo__title">Sobre nosotros</h3>
+            <h3 class="textinfo__title" id="about">Sobre nosotros</h3>
             <ul class="lista-caracteristicas">
               <li class="text__raro">Somos una tienda especializada en lencería femenina</li>
               <li class="text__raro">Ofrecemos una amplia variedad de estilos y tallas</li>
@@ -134,8 +134,7 @@
     </div>
      
     </footer>
+    <script defer src="public/bundle.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <script src="app.js"></script>
-    <script src="script.js"></script> 
 </body>
 </html>
