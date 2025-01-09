@@ -55,11 +55,10 @@
      Ocupa el 80% de ancho y centra elementos con Flexbox. */
   &__container {
       width: 80%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
   }
-
+  &__form{
+    width: 100%;
+  }
   /* Campo de entrada: 
      Campo de texto con altura fija, relleno y esquinas redondeadas. */
   &__input {
@@ -80,6 +79,7 @@
       height: 2.5rem;
       padding: 10px 25px;
       border: 0;
+      margin-left: -4px;
       border-radius: 0 5px 5px 0;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       background-color: crimson;

@@ -1,101 +1,87 @@
-.main {
-  .products {
-    &__container {
-      /* Ajusta el espacio vertical entre los elementos dentro del contenedor de productos */
-      row-gap: 3.5rem;
-    }
+/* Estilo base para la sección de productos */
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* Espaciado entre los elementos */
+  justify-content: center;
+  padding: 20px; /* Añadir un poco de espacio alrededor */
+}
 
-    &__card {
-      /* Estilos para las tarjetas de producto 
-      Establece el diseño de las tarjetas de producto con un fondo blanco, centrado, sombras y un ancho máximo fijo de 390px para pantallas grandes.*/
-      background-color: white;               
-      text-align: center;                   
-      width: 100%;                            
-      max-width: 390px;                     
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Sombra suave para dar efecto de profundidad
-      margin: 0 auto;     
-      text-decoration: none; /* Quita el subrayado de los enlaces */
-      color: #000; 
-    }
+/* Elementos individuales */
+.products__item {
+  flex: 1 1 calc(25% - 16px); /* 4 columnas en escritorio, ajustado */
+  width: 150px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px; /* Reducir padding para hacer los items más pequeños */
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; /* Suavizar el efecto hover */
 
-    &__content {
-      /* Contenedor flexible que organiza los productos en columnas 
-      Organiza en un sistema de grid flexible, ajustando automáticamente el número de columnas según el tamaño de la pantalla, con un espacio de 0.5rem entre las tarjeta.*/
-      display: grid;                         
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Se ajusta automáticamente a las pantallas */
-      justify-content: center;              
-      gap: 0.5rem;                         
-      row-gap: 1rem;                         
-    }
+  /* Aseguramos altura consistente con flexbox */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Espaciamos los elementos */
+}
+.products__item:hover {
+  transform: scale(1.05);
+}
 
-    &__img {
-      /* Estilo de las imágenes dentro de las tarjetas 
-      Ajusta las imágenes dentro de las tarjetas para que ocupen el 100% del contenedor y tengan un efecto de desplazamiento hacia arriba al pasar el mouse.*/
-      height: 80%;                         
-      width: 100%;                          
-      max-width: 390px;                      
-      transition: transform 0.4s;  // Efecto de transición para el hover 
-    }
+/* Imagen de los productos */
+.products__image {
+  width: 100%;
+  height: 200px; /* Reducir altura de la imagen para hacer el item más pequeño */
+  object-fit: cover; /* Ajusta la imagen sin deformarla */
+  border-radius: 8px;
+}
 
-    &__img:hover {
-      /* Efecto al pasar el ratón sobre la imagen */
-      transform: translateY(-0.35rem);       /* Desplaza la imagen ligeramente hacia arriba */
-    }
+/* Título del producto */
+.products__name {
+  font-size: 0.9rem; /* Reducir el tamaño del texto */
+  margin: 8px 0;
+  font-weight: bold;
+  color: #333;
+}
 
-    &__name,
-    &__price {
-      /* Estilos para el nombre y el precio de los productos 
-      Ajusta el tamaño de fuente, peso y espaciado para los textos del nombre y precio del producto.*/
-      font-size: 1.2rem;                    
-      font-weight: 500;                  
-      line-height: 120%;   
-                
-    }
+/* Precio del producto */
+.products__price {
+  font-size: 1rem; /* Reducir el tamaño del precio */
+  color: #555;
+  margin-bottom: 12px;
+}
+
+/* Botón de compra */
+.products__button {
+  display: inline-block; /* Para que se comporte como botón */
+  background-color: #a50050;
+  color: white;
+  text-decoration: none; /* Elimina el subrayado */
+  text-align: center;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.products__button:hover {
+  background-color: #800040; /* Color un poco más oscuro */
+  transform: scale(1.05);
+}
+
+/* Vista responsiva para móviles (320px a 480px) */
+@media (max-width: 480px) {
+  .products__item {
+    flex: 1 1 100%; /* 1 columna en móviles */
+    max-width: 100%;
   }
+}
 
-  /* Media Queries para diferentes tamaños de pantalla
-  Ajusta el número de columnas en las pantallas según el tamaño del dispositivo: 3 columnas en pantallas medianas, 4 en pantallas grandes, y 1 en dispositivos móviles. También modifica el tamaño de la fuente y el ancho de las tarjetas e imágenes en pantallas pequeñas. */
-  @media (min-width: 768px) {
-    .products {
-      &__content {
-        /* En pantallas medianas, usa 3 columnas para los productos */
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .products {
-      &__content {
-        /* En pantallas grandes, usa 4 columnas para los productos */
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-  }
-
-  @media (max-width: 480px) {
-    .products {
-      &__content {
-        /* En pantallas pequeñas (móviles), usa solo 1 columna */
-        grid-template-columns: repeat(1, 1fr);
-      }
-
-      &__card {
-        /* En pantallas móviles, las tarjetas ocupan todo el ancho */
-        max-width: 100%;
-      }
-
-      &__img {
-        /* En pantallas móviles, las imágenes tienen altura automática */
-        height: auto;
-        width: 100%;
-      }
-
-      &__name,
-      &__price {
-        /* Reducir el tamaño de la fuente en pantallas más pequeñas */
-        font-size: 1rem;
-      }
-    }
+@media (min-width: 485px) and (max-width: 767px) {
+  .products__item {
+    flex: 1 1 calc(50% - 16px); /* 2 columnas en tablets */
+    max-width: calc(50% - 16px);
   }
 }
