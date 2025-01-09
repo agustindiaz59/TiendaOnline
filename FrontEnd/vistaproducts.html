@@ -6,6 +6,51 @@
     <title>Tienda en Línea</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./public/bundle.css">
+    <style>
+      :root {
+        --color-rojo: #fd443d;
+        --color-amarillo: #d6d610;
+        --color-verde: green;
+        --color-rosa: pink;
+        --color-azul: blue;
+        --color-violeta: violet;
+      }
+    
+      .producto__radio-texto--color::after {
+        content: '';
+        display: block;
+        width: 14px;
+        height: 14px;
+        border-radius: 14px;
+        position: absolute;
+        top: calc(50% - 7px);
+        left: 10px;
+      }
+    
+      .producto__radio-texto--rojo::after {
+        background: var(--color-rojo);
+      }
+    
+      .producto__radio-texto--amarillo::after {
+        background: var(--color-amarillo);
+      }
+    
+      .producto__radio-texto--verde::after {
+        background: var(--color-verde);
+      }
+    
+      .producto__radio-texto--rosa::after {
+        background: var(--color-rosa);
+      }
+    
+      .producto__radio-texto--azul::after {
+        background: var(--color-azul);
+      }
+    
+      .producto__radio-texto--violeta::after {
+        background: var(--color-violeta);
+      }
+    </style>
 </head>
 <body class="grid-container no-sidebar">
   <header class="header">
