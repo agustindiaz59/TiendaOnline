@@ -20,8 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     handleProductQuantity();
 });
 
-// index.js
-import { toggleSidebar, closeSidebar } from './sidebardcerraryabrir.js';
+import { toggleFilterDisplay } from './sidebardcerraryabrir.js';
 
-document.querySelector('.btsfiltrar').addEventListener('click', toggleSidebar);
-document.querySelector('.cerrarbotonbtn').addEventListener('click', closeSidebar);
+// Llamar a la función para activar el filtro cuando se haga clic en el botón
+toggleFilterDisplay();

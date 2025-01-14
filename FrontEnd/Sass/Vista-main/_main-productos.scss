@@ -1,6 +1,7 @@
 /* Estilo base para la sección de productos */
 .products {
   display: flex;
+  height: 100%;
   flex-wrap: wrap;
   gap: 16px; /* Espaciado entre los elementos */
   justify-content: center;
@@ -9,8 +10,8 @@
 
 /* Elementos individuales */
 .products__item {
-  flex: 1 1 calc(25% - 16px); /* 4 columnas en escritorio, ajustado */
-  width: 150px;
+  flex: 1 1 calc(25% - 35px); /* 4 columnas en escritorio, ajustado */
+  width: 100px;
   box-sizing: border-box;
   border: 1px solid #ddd;
   border-radius: 8px;
