@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda en Línea</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./public/bundle.css">
+</head>
+<body class="grid-container">
+  <header class="header">
+    <div class="logo-container">
+      <a href="index.html"><img src="assets/imagen/Logo3.png" alt="Logo de la empresa" class="logo-container__img" ></a> 
+    </div>
+    <input type="checkbox" id="menuToggle" class="menu-toggle">
+    <label for="menuToggle" class="abrirmenu"><i class="bi bi-list"></i></label>
+    <nav class="nav">
+        <label for="menuToggle" class="cerrarmenu"><i class="bi bi-x-lg"></i></label>
+        <ul class="navbar__list">
+            <li class="navbar__item"><a class="navbar__link" href="index.html">Inicio</a></li>
+            <li class="navbar__item"><a class="navbar__link" href="products.html">Productos</a></li>
+            <li class="navbar__item"><a class="navbar__link" href="#about">Acerca</a></li>
+            <li class="navbar__item"><a class="navbar__link" href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+<nav class="navbard">
+  <div class="navbard__container">
+      <form action="/rutabackend" method="GET" class="navbard__form">
+          <input type="text" placeholder="Buscar..." class="navbard__input" name="buttonbuscar">
+          <button type="submit" class="navbard__search-button"><i class="bi bi-search"></i></button>
+      </form>
+  </div>
+  <div class="Carrito"><i class="bi bi-bag-heart-fill Carrito__blanco"></i></i></div>
+</nav>
+ <div class="break">
+  <div class="breadcrumbs">
+    <a href="index.html" class="breadcrumbs__link">Inicio</a>
+    <div class="breadcrumbs__separador">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+        class="breadcrumbs__svg"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+        />
+      </svg>
+    </div>
+    <p href="products.html" class="breadcrumbs__active">Mercaderia</p>
+    <div class="breadcrumbs__separador">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+        class="breadcrumbs__svg"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+        />
+      </svg>
+    </div>
+  </div>
+ </div>
+    <main class="main">
+        <section class="cart">
+            <h1>Carrito de Compras</h1>
+            <div class="cart-items">
+              <!-- Ejemplo de producto -->
+              <div class="cart-item">
+                <img src="/FrontEnd/assets/imagen/foto1.jpeg" alt="Producto 1" />
+                <div class="item-details">
+                  <h2>Nombre del Producto</h2>
+                  <p>Descripción breve del producto.</p>
+                  <p>Precio: $100</p>
+                  <input type="number" min="1" value="1" class="quantity" />
+                  <button class="remove-btn">Eliminar</button>
+                </div>
+              </div>
+              <div class="cart-item">
+                <img src="/FrontEnd/assets/imagen/foto1.jpeg" alt="Producto 1" />
+                <div class="item-details">
+                  <h2>Nombre del Producto</h2>
+                  <p>Descripción breve del producto.</p>
+                  <p>Precio: $100</p>
+                  <input type="number" min="1" value="1" class="quantity" />
+                  <button class="remove-btn">Eliminar</button>
+                </div>
+              </div>
+              <div class="cart-item">
+                <img src="/FrontEnd/assets/imagen/foto1.jpeg" alt="Producto 1" />
+                <div class="item-details">
+                  <h2>Nombre del Producto</h2>
+                  <p>Descripción breve del producto.</p>
+                  <p>Precio: $100</p>
+                  <input type="number" min="1" value="1" class="quantity" />
+                  <button class="remove-btn">Eliminar</button>
+                </div>
+              </div>
+              <!-- Repite este bloque para más productos -->
+            </div>
+            <div class="cart-summary">
+              <h2>Resumen del Pedido</h2>
+              <p>Total Productos</p>
+              <button class="checkout-btn">Enviar Mensaje</button>
+            </div>
+          </section>
+    </main>
+    <div class="sidebard">
+      <div class=" pagination-container">
+      <ul class="pagination">
+          <li class="page-item disabled">
+              <a href="#" class="page-link">< Anterior</a>
+          </li>
+          <li class="page-item active">
+              <a href="#" class="page-link">1</a>
+          </li>
+          <li class="page-item">
+              <a href="#" class="page-link">2</a>
+          </li>
+          <li class="page-item">
+              <a href="#" class="page-link">3</a>
+          </li>
+          <li class="page-item">
+              <a href="#" class="page-link">4</a>
+          </li>
+          <li class="page-item">
+              <a href="#" class="page-link">5</a>
+          </li>
+          <li class="page-item">
+              <a href="#" class="page-link"> Siguente ></a>
+          </li>
+      </ul>
+    </div>
+   </div>
+    <footer class="footer">
+        <div class="textinfo">
+          <h3 class="textinfo__title">Contacto</h3>
+          <p  class="textinfo__text">Email: arayasuarezerika@gmail.com</p>
+          <p  class="textinfo__text">Teléfono: 3873355251</p>
+          <p  class="textinfo__text">Dirección: Pasaje lebhenson 89</p>
+          <ul class="web-social">
+              <li class="web-social__item">
+                <a href="https://www.twitch.tv/doriandesings">
+                  <img src="/assets/imagen/youtube-logo.png" alt="youtube logo" class="web-social__logo"/>
+                </a>
+              </li>
+              <li class="web-social__item">
+                <a href="https://www.instagram.com/dorian_desings/?hl=es">
+                  <img src="/assets/imagen/instagram-logo.png" alt="instagram logo" class="web-social__logo" />
+                </a>
+              </li>
+              <li class="web-social__item">
+                  <a href="https://twitter.com/home?lang=es">
+                  <img src="/assets/imagen/twitter-logo.png" alt="twitter logo" class="web-social__logo" />
+                </a>
+              </li>
+              <li class="web-social__item">
+                <a href="https://www.youtube.com/c/DorianDesings/?sub_confirmation=1">
+                  <img src="/assets/imagen/twitch-logo.png" alt="twitch logo" class="web-social__logo" />
+                </a>
+              </li>
+          </ul>
+      </div>
+          <div class="textinfo">
+              <h3 class="textinfo__title">Sobre nosotros</h3>
+              <ul class="lista-caracteristicas">
+                <li class="text__raro">Somos una tienda especializada en lencería femenina</li>
+                <li class="text__raro">Ofrecemos una amplia variedad de estilos y tallas</li>
+                <li class="text__raro">Nuestra misión es hacer que cada mujer se sienta hermosa y confiada</li>
+              </ul>
+      </div>
+       
+      </footer>
+      <script defer src="public/bundle.js"></script>
+</body>
+</html>

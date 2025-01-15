@@ -1,0 +1,17 @@
+.Carrito{
+   margin-bottom: 5px;
+   &__blanco{
+    color: #252424;
+    font-size: 3rem;
+   }
+}
+
+@media (max-width: 768px) {
+    .Carrito{
+        &__blanco{
+         color: #252424;
+         font-size: 3rem;
+        }
+     }
+     
+}
