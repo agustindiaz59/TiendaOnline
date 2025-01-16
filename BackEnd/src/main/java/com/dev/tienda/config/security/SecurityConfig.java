@@ -1,6 +1,5 @@
-package com.dev.tienda.config;
+package com.dev.tienda.config.security;
 
-import com.dev.tienda.servicios.UsuarioUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -29,8 +28,7 @@ import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 @ComponentScan("com.dev.tienda")
 public class SecurityConfig extends AbstractSecurityWebApplicationInitializer { //iniciador para aplicaciones MVC
 
-    @Autowired
-    private UsuarioUserDetailsService usuarioUserDetailsService;
+
 
     /**
      * Aqui estan las configuraciones generales de la aplicacion como rutas,
@@ -62,6 +60,7 @@ public class SecurityConfig extends AbstractSecurityWebApplicationInitializer { 
                 )
                 .exceptionHandling(exception -> exception //Se encarga de redirecciones y establecer codigos de error HTTP
                         .accessDeniedHandler(new CustomAccesDeniedHandler())
+
                 )
                 .formLogin(form ->form //Se encarga del login
                         .loginPage("/login")
@@ -71,6 +70,7 @@ public class SecurityConfig extends AbstractSecurityWebApplicationInitializer { 
                         //nombre de las credenciales que se validaran en la BBDD mediante biding html
                         .usernameParameter("username")
                         .passwordParameter("password")
+                        .successHandler(new LoginSuccessHandler()) //Experimental
                 )
                 .csrf(csrf -> csrf // Se encarga de proteccion contra Cross Site Request Forgery
                         .csrfTokenRepository(new HttpSessionCsrfTokenRepository())
@@ -90,15 +90,16 @@ public class SecurityConfig extends AbstractSecurityWebApplicationInitializer { 
 
     /**
      * Este bean se encarga de validar las credenciales del usuario (userDetails),
+     * las solicita al userDetailsService y compara las contraseñas con el passwordEncoder
      *
      * @param userDetailsService servicio encargado de la busqueda en la base de datos del usuario
      * @param passwordEncoder objeto encargado de verificar si la contraseña encriptada coincide con la ingresada en el formulario de login
      */
-    //las solicita al userDetailsService y compara las contraseñas con el passwordEncoder
     @Bean
     public DaoAuthenticationProvider authenticationProvider(
             UserDetailsService userDetailsService,
-            PasswordEncoder passwordEncoder) {
+            PasswordEncoder passwordEncoder
+    ) {
 
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         authenticationProvider.setUserDetailsService(userDetailsService);

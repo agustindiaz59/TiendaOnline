@@ -1,5 +1,6 @@
 package com.dev.tienda.servicios;
 
+import com.dev.tienda.dto.ProductoDTO;
 import com.dev.tienda.modelos.*;
 import com.dev.tienda.repositorios.*;
 import lombok.NonNull;
@@ -10,7 +11,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
-
+/**
+ * Servicio
+ */
 @Service
 public class ProductoService {
 
@@ -25,6 +28,11 @@ public class ProductoService {
     @Autowired
     private TallaService tallaService;
 
+
+    //---------------Contructores---------------//
+    public ProductoService(){
+
+    }
 
 
     //---------------Metodos con retorno unico---------------//

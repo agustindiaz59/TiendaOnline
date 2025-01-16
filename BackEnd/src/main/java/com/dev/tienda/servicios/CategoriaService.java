@@ -1,6 +1,6 @@
 package com.dev.tienda.servicios;
 
-import com.dev.tienda.modelos.Categoria;
+import com.dev.tienda.modelos.*;
 import com.dev.tienda.repositorios.ICategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

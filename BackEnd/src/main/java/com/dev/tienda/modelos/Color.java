@@ -18,7 +18,7 @@ import java.util.Set;
 public class Color {
 
 
-    //-------------Campos-----------------------
+    //----------------Campos--------------------//
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -37,13 +37,16 @@ public class Color {
 
 
 
-    //-------------Relaciones-----------------------
+    //-------------Relaciones--------------------------//
     @ManyToMany(mappedBy = "colores", cascade = {CascadeType.MERGE,CascadeType.REFRESH },fetch = FetchType.EAGER)
     private Set<Producto> productos = new LinkedHashSet<Producto>();
 
 
 
-    //-------------Constructores-----------------------
+
+
+
+    //----------------Constructores-------------------//
 
     public Color(){}
 
@@ -67,8 +70,12 @@ public class Color {
         this.htmlValue = colorDTO.htmlValue();
     }
 
+    //----------------Conversion---------------//
+    public ColorDTO getDTO(){
+        return new ColorDTO(nombre,htmlValue);
+    }
 
-    //-------------Metodos-----------------------
+    //----------------Metodos--------------------//
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

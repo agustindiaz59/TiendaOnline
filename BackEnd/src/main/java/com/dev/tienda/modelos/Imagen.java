@@ -1,5 +1,6 @@
 package com.dev.tienda.modelos;
 
+import com.dev.tienda.dto.ColorDTO;
 import com.dev.tienda.dto.ImagenDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -26,10 +27,15 @@ public class Imagen {
     private String src;
 
 
+
+
     //-------------Relaciones-----------------------
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "producto_id")
     private Producto producto;
+
+
+
 
 
 
@@ -50,6 +56,11 @@ public class Imagen {
     }
 
 
+
+    //----------------Conversion---------------//
+    public ImagenDTO getDTO(){
+        return new ImagenDTO(src);
+    }
 
     //------------Metodos object-----------------------
     @Override

@@ -106,6 +106,7 @@ public class ProductoControlador {
         modelo.addAttribute("categorias", categorias);
         modelo.addAttribute("colores", colores);
         modelo.addAttribute("tallas", tallas);
+
         return "products";
     }
 
@@ -121,12 +122,12 @@ public class ProductoControlador {
      */
     @GetMapping("/vistaproducts")
     public String detalleDeProducto(Model modelo,
-                                    @RequestParam("n") String nombre){
+                                    @RequestParam("n") String nombre
+    ){
 
         //Convierto los + en espacios en blanco desde la url
         nombre = nombre.replace('+',' ');
         Producto p = productoService.traerConTodo(nombre);
-
         modelo.addAttribute("producto",p);
 
         return "vistaproducts";
@@ -135,23 +136,15 @@ public class ProductoControlador {
     /**
      * Ruta que envia el formulario para crear un producto
      */
-    @GetMapping("/guardar")
-    public String formularioProducto(Model modelo){
-        List<Producto> productos = productoService.traerTodosConImagenes();
-        List<Categoria> categorias = categoriaService.traerTodos();
-        List<Color> colores = colorService.traerTodos();
-        List<Talla> tallas = tallaService.traerTodos();
-
-        modelo.addAttribute("productos",productos);
-        modelo.addAttribute("categorias", categorias);
-        modelo.addAttribute("colores", colores);
-        modelo.addAttribute("tallas", tallas);
-
+    @GetMapping("/nuevo")
+    public String formularioProducto(){
         return "nuevoProducto";
     }
 
+
     @PostMapping("/guardar")
-    public String guardarProducto(@Valid ProductoDTO productoDTO, BindingResult bindingResult){
+    public String guardarProducto(@Valid ProductoDTO productoDTO,
+                                  BindingResult bindingResult){
 
         System.out.println(productoDTO);
         if(bindingResult.hasErrors()){

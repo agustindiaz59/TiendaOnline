@@ -1,5 +1,6 @@
 package com.dev.tienda.config;
 
+import com.dev.tienda.config.security.SecurityConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class DispatcherServlet extends AbstractAnnotationConfigDispatcherServletInitializer {

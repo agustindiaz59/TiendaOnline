@@ -2,8 +2,19 @@ package com.dev.tienda.dto;
 
 import jakarta.validation.constraints.*;
 
-import java.util.LinkedHashSet;
+import java.util.Set;
 
+/**
+ * Clase DTO para la transferencia de datos de un producto al Front
+ *
+ *
+ * @param nombre Nombre del producto
+ * @param descripcion Descripcion del producto
+ * @param precio Precio unitario
+ * @param imagenes Imagenes asociadas
+ * @param colores Colores disponibles
+ * @param categorias Categorias aplicables al producto
+ */
 public record ProductoDTO (
 
         @NotEmpty
@@ -19,10 +30,10 @@ public record ProductoDTO (
         @Positive
         Float precio,
 
-        LinkedHashSet<ImagenDTO> imagenes,
+        Set<ImagenDTO> imagenes,
 
         @NotEmpty
-        LinkedHashSet<ColorDTO> colores,
-        LinkedHashSet<CategoriaDTO> categorias
+        Set<ColorDTO> colores,
+        Set<CategoriaDTO> categorias
 ){
 }

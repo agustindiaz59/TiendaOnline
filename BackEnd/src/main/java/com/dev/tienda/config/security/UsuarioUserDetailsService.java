@@ -1,4 +1,4 @@
-package com.dev.tienda.servicios;
+package com.dev.tienda.config.security;
 
 import com.dev.tienda.repositorios.IUsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class UsuarioUserDetailsService implements UserDetailsService {
 
         return repositorio.findByNombre(username).get();
 
-        //if(usuario != null){
+        //if(usuario != null){ //no es necesario ya que usuario implementa UserDetails
         //    UserDetails springUser = User.builder() //UserDetails es el objeto que spring usa para comprobar credenciales, permisos y roles
         //            .username(usuario.getNombre())
         //            .password(usuario.getContrasenia())

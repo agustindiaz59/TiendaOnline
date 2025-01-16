@@ -50,6 +50,11 @@ public class Categoria {
         this.nombre = categoriaDTO.nombre();
     }
 
+    //---------------Conversion---------------//
+    public CategoriaDTO getDTO(){
+        return new CategoriaDTO(nombre);
+    }
+
 
     //--------------Metodos object-----------------------
     @Override

@@ -95,7 +95,7 @@ public class Producto {
 
 
 
-    //-------------Metodos-----------------------
+    //---------------Metodos---------------------//
 
     //Metodos de stock
     public Boolean enStock(){
@@ -142,7 +142,7 @@ public class Producto {
         categorias.add(categoria);
     }
 
-    //--------------------Getters y Setters--------------
+    //-----------------Getters y Setters-----------------//
 
 
     public void setImagenes(Set<Imagen> imagenes) {
@@ -152,7 +152,7 @@ public class Producto {
         this.imagenes = imagenes;
     }
 
-    //-------------Equals y hashCode-----------------------
+    //----------------Equals y hashCode------------------//
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

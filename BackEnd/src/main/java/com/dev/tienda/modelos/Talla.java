@@ -25,11 +25,11 @@ public class Talla {
     @JdbcTypeCode(SqlTypes.FLOAT)
     private Float numero;
 
-    @ManyToMany(mappedBy = "tallas",fetch = FetchType.EAGER, cascade = {CascadeType.MERGE,CascadeType.REFRESH })
+    @ManyToMany(mappedBy = "tallas", cascade = {CascadeType.MERGE,CascadeType.REFRESH })
     private Set<Producto> productos = new LinkedHashSet<>();
 
 
-
+    //----------------Constructores--------------//
     public Talla(){}
 
     public Talla(Float numero){
