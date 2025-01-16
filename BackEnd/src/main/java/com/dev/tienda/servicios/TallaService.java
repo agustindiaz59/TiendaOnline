@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class TallaService {
@@ -16,6 +18,14 @@ public class TallaService {
 
     public List<Talla> traerTodos(){
         return tallaRepository.findAll();
+    }
+
+    public Set<Talla> contextualizar(Set<Talla> tallas){
+        return tallas.stream()
+                .map(talla ->
+                        tallaRepository.findByNumero(talla.getNumero()).orElse(talla)
+                )
+                .collect(Collectors.toSet());
     }
 
 }

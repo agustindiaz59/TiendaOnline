@@ -1,13 +1,11 @@
 package com.dev.tienda.modelos;
 
-import com.dev.tienda.repositorios.IColorRepository;
+import com.dev.tienda.dto.ColorDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Persistable;
 
 import java.util.LinkedHashSet;
 import java.util.Objects;
@@ -20,7 +18,7 @@ import java.util.Set;
 public class Color {
 
 
-    //-------------Campos-----------------------
+    //----------------Campos--------------------//
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -39,13 +37,16 @@ public class Color {
 
 
 
-    //-------------Relaciones-----------------------
+    //-------------Relaciones--------------------------//
     @ManyToMany(mappedBy = "colores", cascade = {CascadeType.MERGE,CascadeType.REFRESH },fetch = FetchType.EAGER)
     private Set<Producto> productos = new LinkedHashSet<Producto>();
 
 
 
-    //-------------Constructores-----------------------
+
+
+
+    //----------------Constructores-------------------//
 
     public Color(){}
 
@@ -64,10 +65,17 @@ public class Color {
         this.nombre = nombre;
     }
 
+    public Color(ColorDTO colorDTO) {
+        this.nombre = colorDTO.nombre();
+        this.htmlValue = colorDTO.htmlValue();
+    }
 
+    //----------------Conversion---------------//
+    public ColorDTO getDTO(){
+        return new ColorDTO(nombre,htmlValue);
+    }
 
-
-    //-------------Metodos-----------------------
+    //----------------Metodos--------------------//
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

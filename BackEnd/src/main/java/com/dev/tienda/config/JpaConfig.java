@@ -5,15 +5,17 @@ import java.io.IOException;
 import java.util.Properties;
 import javax.sql.DataSource;
 
+import jakarta.validation.Validator;
+import org.flywaydb.core.Flyway;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -22,6 +24,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 import jakarta.persistence.EntityManagerFactory;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 
 /**
@@ -34,7 +37,8 @@ import jakarta.persistence.EntityManagerFactory;
 @EnableJpaRepositories("com.dev.tienda.repositorios")// Especial para @Repository
 @ComponentScan({"com.dev.tienda.modelos","com.dev.tienda.dto"})
 @EnableTransactionManagement(proxyTargetClass = true)
-@PropertySource("classpath:ApplicationProperties.txt")//Traigo los datos de la BBDD desde un archivo externo
+@EnableSpringDataWebSupport //Soportar paginacion web
+//@PropertySource("classpath:ApplicationProperties.txt")//Traigo los datos de la BBDD desde un archivo externo
 //@ComponentScan("com.dev.tienda")
 public class JpaConfig {
 
@@ -48,6 +52,8 @@ public class JpaConfig {
     private String password;
 
     /**
+     * DataSource es una abstraccion que contiene
+     * los datos necesarios para la coneccion a la base de datos
      *
      * @return Datasource objeto que representa una conexion a la base de datos, con todos los datos correspondientes
      */
@@ -63,6 +69,7 @@ public class JpaConfig {
 	}
 
 
+
     /**
      * Necesario como interfaz principal de spring JPA para manejar las transacciones
      *
@@ -76,6 +83,7 @@ public class JpaConfig {
     }
 
 
+
     /**
      * El EntityManagerFactory maneja la creacion de EntityManager para cada clase mapeada por el orm
      * este bean configura el entityManagerFactory con la implementacion de JPA que reciba y las propiedades de un archivo de texto externo
@@ -84,10 +92,11 @@ public class JpaConfig {
      * @param hibernateProperties inyecta las propiedades de hibernate desde un archivo de texto externo
      * @return EntityManagerFactory que utilizará spring jpa para realizar los mapeos
      */
-    @Bean
+    @Bean()
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(
             HibernateJpaVendorAdapter vendorAdapter,
-            @Qualifier("hibernateProperties") Properties hibernateProperties) {
+            @Qualifier("hibernateProperties")
+            Properties hibernateProperties) {
 
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
@@ -126,5 +135,34 @@ public class JpaConfig {
             throw new RuntimeException(e);
         }
         return hibernateProperties;
+    }
+
+
+    @Bean
+    public Validator validator() {
+        return new LocalValidatorFactoryBean();
+    }
+
+    /**
+     * Bean de configuracion de migraciones Flyway, los archivos en la location() se ejecutaran y segun
+     * la baselineOnMigrate() se configura si sobreescribe las tablas existentes en la base de datos de Datasource
+     *
+     * @param dataSource Base de datos en la cual surtiran los cambios
+     * @return
+     */
+
+    @Bean
+    public Flyway flyway(DataSource dataSource) {
+        // Configuración de Flyway
+        Flyway flyway = Flyway.configure()
+                .dataSource(dataSource)          // Conexión a la base de datos
+                .baselineOnMigrate(true)         // Establecer línea base si el esquema ya tiene tablas
+                .locations("db/migration")       // Ubicación de las migraciones (ruta predeterminada)
+                .load();
+
+        // Ejecutar las migraciones al inicio
+        flyway.migrate();
+
+        return flyway;
     }
 }

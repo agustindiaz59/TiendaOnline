@@ -1,5 +1,6 @@
 package com.dev.tienda.config;
 
+import com.dev.tienda.config.security.SecurityConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class DispatcherServlet extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -18,7 +19,6 @@ public class DispatcherServlet extends AbstractAnnotationConfigDispatcherServlet
 
 	@Override
 	protected String[] getServletMappings() {
-		// TODO Auto-generated method stub
 		return new String[] {"/"};
 	}
 

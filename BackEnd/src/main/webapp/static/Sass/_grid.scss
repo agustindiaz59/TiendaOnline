@@ -56,6 +56,7 @@
             "header" 100px
             "navbard" 30px
             "main" auto
+            "sidebar" auto
             "footer" auto; // Elimina el sidebar aquí
     }
   
@@ -67,7 +68,7 @@
         grid-template:
             "header header header" 100px
             "navbard navbard navbard" 50px
-            "sidebar main main" auto
+            "main main main" auto
             "footer footer footer" auto / 200px auto 200px;
     }
     .no-sidebar{

@@ -1,0 +1,213 @@
+.row {
+  flex-direction: row!important;
+  gap: 2rem; 
+}
+/* Estilos Boton Filtrar */
+.btsfiltrar{ 
+  display: none;
+}
+
+.sidebar {
+    display: flex;
+    justify-content: end;  // Empieza del lado final
+    background-color: #f4f4f4;
+    padding: 10px;
+  
+    &__menu {
+      list-style: none; // Quitamos la decoracciones 
+      padding: 0; 
+  
+      &-item {
+        margin-bottom: 15px; // Ajustamos el contenido hacia abajo
+      }
+      /* Estilos para el botón 
+      En este bloque ajustamos el ancho, el diseño, el color y la fuente */
+      &-btn {
+        width: 100%;
+        background-color: transparent;
+        color: #000000;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        font-weight: 700;
+        /* Estilos para el estado hover */
+        &:hover {
+          background-color: #0056b3; // Al pasar cambia el color con el cursor
+        }
+      }
+    }
+    /* Estilos de submenu:
+    El submenú tiene una lista sin estilo (list-style: none), con un margen superior de 10px y un espaciado interno a la izquierda de 15px. Está oculto por defecto con display: none. */
+    &__submenu {
+      list-style: none;
+      margin-top: 10px;
+      padding-left: 15px;
+      display: none; 
+  
+      &--open {
+        display: block; // Cuando el submenú tiene la clase --open, se muestra al cambiar su display a block.
+      }
+     /* Estilos de los elementos de la lista item):
+     Los elementos de la lista tienen márgenes de 5px arriba y abajo, con un relleno de 5px a los lados. Además, los bordes son redondeados con border-radius: 3px. Cuando se pasa el cursor sobre un ítem, su fondo cambia a un color gris claro. */
+      &-item {
+        margin: 5px 0;
+        padding: 5px 10px;
+        border-radius: 3px;
+      
+        &:hover {
+          background-color: #d6d8db; 
+        }
+      }
+      /* Estilo para el checkbox 
+       Este bloque configura un contenedor flexible para el cuadro, centrando su contenido tanto horizontal como verticalmente. También elimina los estilos predeterminados del navegador y cambia el cursor a "mano" al pasar sobre el contenedor*/
+      &-cuadrado {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        accent-color: #ffffff;
+        cursor: pointer;
+        appearance: none;
+      }
+      
+      /* Estilo del cuadro de verificación 
+       Este bloque define el estilo para el cuadro, cuando no está marcado. Tiene un borde negro, un tamaño específico y el símbolo de una marca de verificación (✔) invisible, pero configurado para mostrarse cuando el cuadro se marque.*/
+      &-cuadrado::before {
+        border: 2px solid black;
+        border-radius: 4px;
+        color: transparent;
+        content: "\2713";
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        line-height: 17px; 
+      }
+      /* Estilos cuando el cuadro de verificación está marcado 
+      Este bloque establece el estilo para cuando el cuadro de está marcado. Se cambia el color del símbolo de verificación a negro, se pone en negrita y se asegura de que el símbolo esté centrado. */
+      &-cuadrado:checked::before {
+        color: #000000; 
+        content: "\2713"; 
+        font-weight: 900;
+        line-height: 17px; 
+        text-align: center; 
+      }
+      /* Estilos para la etiqueta del cuadro de verificación 
+      Este bloque define el estilo para la etiqueta asociada al cuadro. Usa flexbox para organizar los elementos dentro de la etiqueta y coloca un espacio entre ellos. El cursor cambia a "mano" cuando pasa sobre la etiqueta*/
+      &-label {
+        width: 180px;
+        display: flex;
+        gap: 1.4rem;
+        font-size: 0.9rem;
+        cursor: pointer; 
+        align-items: center; 
+        justify-content: flex-start;
+        position: relative;
+       }
+      /* Estilos para el pequeño círculo 
+      Este bloque posiciona un círculo pequeño en la esquina derecha de la etiqueta. Se utiliza position: absolute para ubicarlo, y el border-radius: 50% lo convierte en un círculo.*/
+      &-tamaños{
+        position: absolute;
+        right: 0;
+        width: 15px;  
+        height: 15px;
+        border-radius: 50%;
+      }
+      /* Colores Apartado */
+      &-negro {
+        background-color:#000000;
+      }
+      &-azul{
+        background-color: blue;
+      }
+      &-blanco{
+        border: 2px solid #000000;
+      }
+      &-rosa{
+        background-color: pink;
+      }
+      &-verde{
+        background-color: green;
+      }
+      &-naranja{
+        background-color: orange;
+      }
+      &-Amarillo{
+        background-color: yellow;
+      }
+      &-violeta{
+        background-color: violet;
+      }
+    }
+  }
+  @media (320px <= width <= 768px) {
+    .row{
+      flex-direction: column!important;
+    }
+    .btsfiltrar{
+      display: block;
+    }
+    /* Estilo del sidebar 
+    La clase .sidebar define un menú lateral oculto con posición fija, ancho completo, desplazamiento vertical habilitado, animación de deslizamiento y prioridad visual con un z-index alto.
+    */
+    .sidebar {
+      display: none;
+      position: fixed;  /* El sidebar se mantiene fijo en la pantalla */
+      left: -250px;    
+      top: 0;
+      width: 100%;     
+      height: 100vh;   
+      background-color: #ffffff; 
+      color: rgb(0, 0, 0);    
+      padding: 0;
+      transition: left 0.3s ease; /* Animación de deslizamiento */
+      overflow-y: auto; /* Permite desplazamiento vertical dentro del sidebar */
+      z-index: 8;    
+      padding-top: 40px;
+      &__menu{
+        display: flex;               
+        flex-direction: column;      
+        gap: 1rem;                
+        padding: 0;
+        margin: 0;
+        &-btnstyles{
+          position: absolute;
+          background-color: #252424;
+          left: -0;
+          border-radius: 0px;
+          top: -0px;
+          color: #ffffff;
+        }
+        &-btn{
+          font-size: 1rem;     
+        }
+        &-btn:hover{
+          background-color: transparent;
+        }
+        &-item {
+          margin: 0 1rem;            
+          // margin-bottom: 50px;   
+        }
+      }
+      /* Estilos del submenu-label
+      El contenedor del submenú usa flexbox para alinear sus elementos, ocupa todo el ancho disponible, con un espacio entre ellos y texto alineado a la izquierda. Se usa cursor: pointer para indicar que es interactivo y position: relative para poder mover el contenedor si es necesario */
+      &__submenu-label {
+        width: 100%;
+        display: flex;
+        gap: 1.4rem;
+        font-size: 0.9rem;
+        cursor: pointer; 
+        align-items: center; 
+        text-align: start;
+        justify-content: flex-start;
+        position: relative;
+      }
+     /*Estilos cuando el elemento tiene la clase active
+     Cuando el contenedor tiene la clase .active, se mueve hacia la izquierda con left: 0 y se vuelve visible al establecer display: block. */
+      &.active {
+        left: 0; /* Lo mueve a la izquierda para hacerlo visible */
+        display: block; /* Hacemos visible el sidebar cuando tiene la clase active */
+      }
+    }
+  }

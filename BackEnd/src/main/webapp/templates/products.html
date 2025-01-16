@@ -8,62 +8,220 @@
     <link rel="stylesheet" href="./public/bundle.css">
 </head>
 <body class="grid-container">
-    <header class="header">
-        <div class="logo-container">
-            <img src="/assets/imagen/Logo3.png" alt="Logo de la empresa">
-        </div>
-        <input type="checkbox" id="menuToggle" class="menu-toggle">
-        <label for="menuToggle" class="abrirmenu"><i class="bi bi-list"></i></label>
-        <nav class="nav">
-            <label for="menuToggle" class="cerrarmenu"><i class="bi bi-x-lg"></i></label>
-            <ul class="navbar__list">
-                <li class="navbar__item"><a class="navbar__link" href="/index">Inicio</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="/products">Productos</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="#about">Acerca</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="#contact">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-    <nav class="navbard">
-        <div class="container">
-            <input type="text" placeholder="Buscar..." class="inputb">
-            <button class="search-button"><i class="bi bi-search"></i></button>
-        </div>
+  <header class="header">
+    <div class="logo-container">
+        <img src="/assets/imagen/Logo3.png" alt="Logo de la empresa" class="logo-container__img">
+    </div>
+    <input type="checkbox" id="menuToggle" class="menu-toggle">
+    <label for="menuToggle" class="abrirmenu"><i class="bi bi-list"></i></label>
+    <nav class="nav">
+        <label for="menuToggle" class="cerrarmenu"><i class="bi bi-x-lg"></i></label>
+        <ul class="navbar__list">
+          <li class="navbar__item"><a class="navbar__link" href="/index">Inicio</a></li>
+          <li class="navbar__item"><a class="navbar__link" href="/products">Productos</a></li>
+          <li class="navbar__item"><a class="navbar__link" href="#about">Acerca</a></li>
+          <li class="navbar__item"><a class="navbar__link" href="#contact">Contacto</a></li>
+      </ul>
     </nav>
-    <aside class="sidebar">
+</header>
+<nav class="navbard">
+  <form class="navbard__container">
+          <input type="text" placeholder="Buscar..." class="navbard__input">
+          <button class="navbard__search-button"><i class="bi bi-search"></i></button>
+  </form>
+</nav>
+    <main class="main row">
+      <button class="btsfiltrar">Filtrar</button>
+      <aside class="sidebar">
         <ul class="sidebar__menu">
             <li class="sidebar__menu-item">
-              <button class="sidebar__menu-btn">Categoría</button>
-              <ul class="sidebar__submenu"  th:each="categoria : ${categorias}">
-                  <li class="sidebar__submenu-item" th:text="${categoria.nombre}"></li>
-              </ul>
+              <button class="sidebar__menu-btn sidebar__menu-btnstyles cerrarbotonbtn">Filtrar por</button>
             </li>
             <li class="sidebar__menu-item">
               <button class="sidebar__menu-btn">Color</button>
-              <ul class="sidebar__submenu" th:each="color : ${colores}">
-                <li class="sidebar__submenu-item" th:text="${color.nombre}"></li>
+              <ul class="sidebar__submenu">
+                <li class="sidebar__submenu-item">
+                  <label class="sidebar__submenu-label" for="color-azul">
+                    <input class="sidebar__submenu-cuadrado" id="color-azul" type="checkbox" name="color" value="azul">
+                    Azul
+                    <div class="sidebar__submenu-azul sidebar__submenu-tamaños"></div>
+                  </label>
+                </li>
+                <li class="sidebar__submenu-item">
+                  <label class="sidebar__submenu-label" for="color-blanco">
+                    <input class="sidebar__submenu-cuadrado" id="color-blanco" type="checkbox" name="color" value="blanco">
+                    Blanco
+                    <div class="sidebar__submenu-blanco sidebar__submenu-tamaños"></div>
+                  </label>
+                </li>
+                <li class="sidebar__submenu-item">
+                  <label class="sidebar__submenu-label" for="color-negro">
+                    <input class="sidebar__submenu-cuadrado" id="color-negro" type="checkbox" name="color" value="negro">
+                    Negro
+                    <div class="sidebar__submenu-negro sidebar__submenu-tamaños"></div>
+                  </label>
+                </li>
+                <li class="sidebar__submenu-item">
+                  <label class="sidebar__submenu-label" for="color-rosa">
+                    <input class="sidebar__submenu-cuadrado" id="color-rosa" type="checkbox" name="color" value="rosa">
+                    Rosa
+                    <div class="sidebar__submenu-rosa sidebar__submenu-tamaños"></div>
+                  </label>
+                </li>
+                <li class="sidebar__submenu-item">
+                  <label class="sidebar__submenu-label" for="color-verde">
+                    <input class="sidebar__submenu-cuadrado" id="color-verde" type="checkbox" name="color" value="verde">
+                    Verde
+                    <div class="sidebar__submenu-verde sidebar__submenu-tamaños"></div>
+                  </label>
+                </li>
+                <li class="sidebar__submenu-item">
+                  <label class="sidebar__submenu-label" for="color-naranja">
+                    <input class="sidebar__submenu-cuadrado" id="color-naranja" type="checkbox" name="color" value="naranja">
+                    Naranja
+                    <div class="sidebar__submenu-naranja sidebar__submenu-tamaños"></div>
+                  </label>
+                </li>
+                <li class="sidebar__submenu-item">
+                  <label class="sidebar__submenu-label" for="color-violeta">
+                    <input class="sidebar__submenu-cuadrado" id="color-Amarillo" type="checkbox" name="color" value="Amarillo">
+                    Amarillo
+                    <div class="sidebar__submenu-Amarillo sidebar__submenu-tamaños"></div>
+                  </label>
+                </li>
+                <li class="sidebar__submenu-item">
+                  <label class="sidebar__submenu-label" for="color-violeta">
+                    <input class="sidebar__submenu-cuadrado" id="color-violeta" type="checkbox" name="color" value="violeta">
+                    Violeta
+                    <div class="sidebar__submenu-violeta sidebar__submenu-tamaños"></div>
+                  </label>
+                </li>
+              </ul>
+            </li>
+            <li class="sidebar__menu-item">
+              <button class="sidebar__menu-btn">Talle</button>
+              <ul class="sidebar__submenu">
+                <li class="sidebar__submenu-item">
+                  <label class="sidebar__submenu-label" for="color-azul">
+                    <input class="sidebar__submenu-cuadrado" id="color-azul" type="checkbox" name="color" value="azul">
+                    Azul
+                    <div class="sidebar__submenu-azul sidebar__submenu-tamaños"></div>
+                  </label>
+                </li>
+                <li class="sidebar__submenu-item">
+                  <label class="sidebar__submenu-label" for="color-blanco">
+                    <input class="sidebar__submenu-cuadrado" id="color-blanco" type="checkbox" name="color" value="blanco">
+                    Blanco
+                    <div class="sidebar__submenu-blanco sidebar__submenu-tamaños"></div>
+                  </label>
+                </li>
+                <li class="sidebar__submenu-item">
+                  <label class="sidebar__submenu-label" for="color-negro">
+                    <input class="sidebar__submenu-cuadrado" id="color-negro" type="checkbox" name="color" value="negro">
+                    Negro
+                    <div class="sidebar__submenu-negro sidebar__submenu-tamaños"></div>
+                  </label>
+                </li>
+                <li class="sidebar__submenu-item">
+                  <label class="sidebar__submenu-label" for="color-rosa">
+                    <input class="sidebar__submenu-cuadrado" id="color-rosa" type="checkbox" name="color" value="rosa">
+                    Rosa
+                    <div class="sidebar__submenu-rosa sidebar__submenu-tamaños"></div>
+                  </label>
+                </li>
+                <li class="sidebar__submenu-item">
+                  <label class="sidebar__submenu-label" for="color-verde">
+                    <input class="sidebar__submenu-cuadrado" id="color-verde" type="checkbox" name="color" value="verde">
+                    Verde
+                    <div class="sidebar__submenu-verde sidebar__submenu-tamaños"></div>
+                  </label>
+                </li>
+                <li class="sidebar__submenu-item">
+                  <label class="sidebar__submenu-label" for="color-naranja">
+                    <input class="sidebar__submenu-cuadrado" id="color-naranja" type="checkbox" name="color" value="naranja">
+                    Naranja
+                    <div class="sidebar__submenu-naranja sidebar__submenu-tamaños"></div>
+                  </label>
+                </li>
+                <li class="sidebar__submenu-item">
+                  <label class="sidebar__submenu-label" for="color-violeta">
+                    <input class="sidebar__submenu-cuadrado" id="color-Amarillo" type="checkbox" name="color" value="Amarillo">
+                    Amarillo
+                    <div class="sidebar__submenu-Amarillo sidebar__submenu-tamaños"></div>
+                  </label>
+                </li>
+                <li class="sidebar__submenu-item">
+                  <label class="sidebar__submenu-label" for="color-violeta">
+                    <input class="sidebar__submenu-cuadrado" id="color-violeta" type="checkbox" name="color" value="violeta">
+                    Violeta
+                    <div class="sidebar__submenu-violeta sidebar__submenu-tamaños"></div>
+                  </label>
+                </li>
               </ul>
             </li>
             <li class="sidebar__menu-item">
               <button class="sidebar__menu-btn">Talla</button>
-              <ul class="sidebar__submenu" th:each="talla : ${tallas}">
-                <li class="sidebar__submenu-item" th:text="${talla.numero}">Item 1</li>
+              <ul class="sidebar__submenu">
+                <li class="sidebar__submenu-item">Item 1</li>
+                <li class="sidebar__submenu-item">Item 2</li>
+                <li class="sidebar__submenu-item">Item 3</li>
               </ul>
             </li>
           </ul>
     </aside>
-    <main class="main">
       <section class="products">
         <div class="products__bg section">
             <div class="products__container container grid">
-                <div class="products__content" >
-                    <a th:href="@{/vistaproducts(n=${producto.nombre.replace(' ', '-')})}" class="products__card" id="product1" th:each="producto : ${productos}">
-                        <article>
-                            <img th:src="'/assets/imagen/' + ${producto.imagenes.iterator().next().src}" alt="products image" class="products__img">
-                            <h3 th:text="${producto.nombre}" class="products__name" id="product1-name"></h3>
-                            <span th:text="'$' + ${producto.precio}" class="products__price" id="product1-price"></span>
-                        </article>
-                    </a>
+                <div class="products__content">
+                  <a th:href="@{/vistaproducts(n=${producto.nombre.replace(' ', '-')})}" class="products__card" id="product1" th:each="producto : ${productos}">
+                    <article>
+                        <img th:src="'/assets/imagen/' + ${producto.imagenes.iterator().next().src}" src="assets/imagen/foto1.jpeg" alt="products image" class="products__img">
+                        <h3 th:text="${producto.nombre}" class="products__name" id="product1-name">Ropa Styles A</h3>
+                        <span th:text="'$' + ${producto.precio}" class="products__price" id="product1-price">$17.90</span>
+                    </article>
+                  </a>
+                    <article class="products__card" id="product2">
+                        <img src="assets/imagen/foto2.jpg" alt="products image" class="products__img">
+                        <h3 class="products__name" id="product2-name">Ropa Styles A</h3>
+                        <span class="products__price" id="product2-price">$24.90</span>
+                    </article>
+    
+                    <article class="products__card" id="product3">
+                        <img src="assets/imagen/foto1.jpeg" alt="products image" class="products__img">
+                        <h3 class="products__name" id="product3-name">Ropa Styles A</h3>
+                        <span class="products__price" id="product3-price">$32.90</span>
+                    </article>
+    
+                    <article class="products__card" id="product4">
+                        <img src="assets/imagen/foto1.jpeg" alt="products image" class="products__img">
+                        <h3 class="products__name" id="product4-name">Ropa Styles A</h3>
+                        <span class="products__price" id="product4-price">$32.90</span>
+                    </article>
+    
+                    <article class="products__card" id="product5">
+                        <img src="assets/imagen/foto2.jpg" alt="products image" class="products__img">
+                        <h3 class="products__name" id="product5-name">Ropa Styles A</h3>
+                        <span class="products__price" id="product5-price">$17.90</span>
+                    </article>
+    
+                    <article class="products__card" id="product6">
+                        <img src="assets/imagen/foto1.jpeg" alt="products image" class="products__img">
+                        <h3 class="products__name" id="product6-name">Ropa Styles A</h3>
+                        <span class="products__price" id="product6-price">$24.90</span>
+                    </article>
+    
+                    <article class="products__card" id="product7">
+                        <img src="assets/imagen/foto1.jpeg" alt="products image" class="products__img">
+                        <h3 class="products__name" id="product7-name">Ropa Styles A</h3>
+                        <span class="products__price" id="product7-price">$32.90</span>
+                    </article>
+    
+                    <article class="products__card" id="product8">
+                        <img src="assets/imagen/foto1.jpeg" alt="products image" class="products__img">
+                        <h3 class="products__name" id="product8-name">Ropa Styles A</h3>
+                        <span class="products__price" id="product8-price">$32.90</span>
+                    </article>
+                    
     
                 </div>
             </div>
@@ -78,22 +236,22 @@
           <p  class="textinfo__text">Dirección: Pasaje lebhenson 89</p>
           <ul class="web-social">
               <li class="web-social__item">
-                <a href="https://www.twitch.tv/doriandesings">
+                <a href="">
                   <img src="/assets/imagen/youtube-logo.png" alt="youtube logo" class="web-social__logo"/>
                 </a>
               </li>
               <li class="web-social__item">
-                <a href="https://www.instagram.com/dorian_desings/?hl=es">
+                <a href="">
                   <img src="/assets/imagen/instagram-logo.png" alt="instagram logo" class="web-social__logo" />
                 </a>
               </li>
               <li class="web-social__item">
-                  <a href="https://twitter.com/home?lang=es">
+                  <a href="">
                   <img src="/assets/imagen/twitter-logo.png" alt="twitter logo" class="web-social__logo" />
                 </a>
               </li>
               <li class="web-social__item">
-                <a href="https://www.youtube.com/c/DorianDesings/?sub_confirmation=1">
+                <a href="">
                   <img src="/assets/imagen/twitch-logo.png" alt="twitch logo" class="web-social__logo" />
                 </a>
               </li>
@@ -109,7 +267,8 @@
       </div>
        
       </footer>
-
+    
+    <script src="sidebardcerraryabrir.js"></script> <!-- Asegúrate de enlazar tu JS -->
     <script src="script.js"></script> <!-- Asegúrate de enlazar tu JS -->
 </body>
 </html>

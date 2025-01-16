@@ -17,13 +17,15 @@ import org.thymeleaf.templatemode.TemplateMode;
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
 
-    //Thymeleaf core
+
+    //--------------------Thymeleaf core---------------------------//
 	@Bean
     public SpringResourceTemplateResolver templateResolver(){
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
-        templateResolver.setPrefix("/templates/");
+        templateResolver.setPrefix("classpath:/templates/");
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode(TemplateMode.HTML);
+        templateResolver.setCharacterEncoding("UTF-8");
         // Template cache is true by default. Set to false if you want
         // templates to be automatically updated when modified.
         templateResolver.setCacheable(false);
@@ -44,17 +46,25 @@ public class WebConfig implements WebMvcConfigurer {
         viewResolver.setTemplateEngine(templateEngine());
         return viewResolver;
     }
+    //-------------------------------------------------------------//
 
-    //Manejadores de recursos
+
+
+
+    //-------------------Manejadores de recursos-------------------//
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-    	registry.addResourceHandler("/assets/**").addResourceLocations("/static/assets/");
-        registry.addResourceHandler("/public/**").addResourceLocations("/static/public/");
-        registry.addResourceHandler("/sass/**").addResourceLocations("/static/Sass/");
-        registry.addResourceHandler("/script.js").addResourceLocations("/static/script.js");
-        registry.addResourceHandler("/app.js").addResourceLocations("/static/app.js");
-        registry.addResourceHandler("/favicon.ico").addResourceLocations("/static/favicon.ico");
-        registry.addResourceHandler("/img/**").addResourceLocations("/static/img/");
+    	registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/static/assets/");
+        registry.addResourceHandler("/public/**").addResourceLocations("classpath:/static/public/");
+        registry.addResourceHandler("/sass/**").addResourceLocations("classpath:/static/Sass/");
+        //registry.addResourceHandler("/script.js").addResourceLocations("classpath:/static/script.js/");
+        registry.addResourceHandler("/app.js").addResourceLocations("classpath:/static/app.js/");
+        registry.addResourceHandler("/favicon.ico").addResourceLocations("classpath:/static/favicon.ico/");//Los archivos terminan en barras
+        registry.addResourceHandler("/img/**").addResourceLocations("classpath:/static/img/");
+        //registry.addResourceHandler("/sidebardcerraryabrir.js").addResourceLocations("/static/sidebardcerraryabrir.js/");
+
+        registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
     }
+    //------------------------------------------------------------//
 
 }

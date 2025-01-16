@@ -1,5 +1,6 @@
 package com.dev.tienda.modelos;
 
+import com.dev.tienda.dto.CategoriaDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -43,6 +44,15 @@ public class Categoria {
     public Categoria(String nombre, Long id){
         this.nombre = nombre;
         this.id = id;
+    }
+
+    public Categoria(CategoriaDTO categoriaDTO) {
+        this.nombre = categoriaDTO.nombre();
+    }
+
+    //---------------Conversion---------------//
+    public CategoriaDTO getDTO(){
+        return new CategoriaDTO(nombre);
     }
 
 

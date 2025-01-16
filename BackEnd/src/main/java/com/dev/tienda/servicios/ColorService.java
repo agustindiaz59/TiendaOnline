@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class ColorService {
@@ -20,9 +20,17 @@ public class ColorService {
     public void guardarTodos(Set<Color> colores){
 
         for (Color c : colores){
-            //TODO Hacer que los find retornen Optional<T>
             repository.save(repository.findByNombre(c.getNombre()).orElse(c));
         }
+    }
+
+    @Transactional
+    public Set<Color> contextualizar(Set<Color> colores){
+        return colores.stream()
+                .map(color ->
+                    repository.findByNombre(color.getNombre()).orElse(color)
+                )
+                .collect(Collectors.toSet());
     }
 
     public List<Color> traerTodos(){
