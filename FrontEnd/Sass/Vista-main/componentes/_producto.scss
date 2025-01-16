@@ -134,26 +134,6 @@
 				background: #000;
 			}
 		}
-		/*Colores específicos
-		Cada opción de color tiene su propio estilo de color de fondo para el círculo (rojo, amarillo, verde, rosa, azul, violeta).*/
-		&--rojo::after {
-			background: #fd443d;
-		}
-		&--amarillo::after {
-			background: #d6d610;
-		}
-		&--Verde::after {
-			background: green;
-		}
-		&--Rosa::after {
-			background: pink;
-		}
-		&--Azul::after {
-			background: Blue;
-		}
-		&--Violeta::after {
-			background: violet;
-		}
 	}
 
 	&__btn-cantidad {

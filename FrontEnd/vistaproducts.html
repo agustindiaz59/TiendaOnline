@@ -6,11 +6,56 @@
     <title>Tienda en Línea</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./public/bundle.css">
+    <style>
+      :root {
+        --color-rojo: #fd443d;
+        --color-amarillo: #d6d610;
+        --color-verde: green;
+        --color-rosa: pink;
+        --color-azul: blue;
+        --color-violeta: violet;
+      }
+    
+      .producto__radio-texto--color::after {
+        content: '';
+        display: block;
+        width: 14px;
+        height: 14px;
+        border-radius: 14px;
+        position: absolute;
+        top: calc(50% - 7px);
+        left: 10px;
+      }
+    
+      .producto__radio-texto--rojo::after {
+        background: var(--color-rojo);
+      }
+    
+      .producto__radio-texto--amarillo::after {
+        background: var(--color-amarillo);
+      }
+    
+      .producto__radio-texto--verde::after {
+        background: var(--color-verde);
+      }
+    
+      .producto__radio-texto--rosa::after {
+        background: var(--color-rosa);
+      }
+    
+      .producto__radio-texto--azul::after {
+        background: var(--color-azul);
+      }
+    
+      .producto__radio-texto--violeta::after {
+        background: var(--color-violeta);
+      }
+    </style>
 </head>
 <body class="grid-container no-sidebar">
   <header class="header">
     <div class="logo-container">
-        <img src="/assets/imagen/Logo3.png" alt="Logo de la empresa" class="logo-container__img">
+       <a href="index.html"><img src="assets/imagen/Logo3.png" alt="Logo de la empresa" class="logo-container__img" ></a> 
     </div>
     <input type="checkbox" id="menuToggle" class="menu-toggle">
     <label for="menuToggle" class="abrirmenu"><i class="bi bi-list"></i></label>
@@ -26,43 +71,51 @@
 </header>
 <nav class="navbard">
   <div class="navbard__container">
-    <input type="text" placeholder="Buscar..." class="navbard__input">
-    <button class="navbard__search-button"><i class="bi bi-search"></i></button>
+      <form action="/rutabackend" method="GET" class="navbard__form">
+          <input type="text" placeholder="Buscar..." class="navbard__input" name="buttonbuscar">
+          <button type="submit" class="navbard__search-button"><i class="bi bi-search"></i></button>
+      </form>
+  </div>
+  <div class="Carrito">
+    <a href="carittovista.html" class="Carrito__link">
+      <i class="bi bi-bag-heart-fill Carrito__blanco"></i>
+    </a>
   </div>
 </nav>
+<div class="break">
+  <div class="breadcrumbs">
+  <a href="index.html" class="breadcrumbs__link">Inicio</a>
+  <div class="breadcrumbs__separador">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      viewBox="0 0 16 16"
+      class="breadcrumbs__svg"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+      />
+    </svg>
+  </div>
+  <a href="products.html" class="breadcrumbs__link">Mercaderia</a>
+  <div class="breadcrumbs__separador">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      viewBox="0 0 16 16"
+      class="breadcrumbs__svg"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+      />
+    </svg>
+  </div>
+  <p href="/" class="breadcrumbs__active">Producto1</p>
+  </div>
+</div>
     <main class="main">
-      <div class="breadcrumbs">
-        <a href="/" class="breadcrumbs__link">Inicio</a>
-        <div class="breadcrumbs__separador">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 16 16"
-            class="breadcrumbs__svg"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-            />
-          </svg>
-        </div>
-        <a href="/" class="breadcrumbs__link">Tenis</a>
-        <div class="breadcrumbs__separador">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 16 16"
-            class="breadcrumbs__svg"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-            />
-          </svg>
-        </div>
-        <p href="/" class="breadcrumbs__active">Converse</p>
-      </div>
-
       <div class="producto" id="producto" data-producto-id="1">
         <div class="producto__thumbs">
           <img src="./assets/imagen/foto1.jpeg" alt="" class="producto__thumb-img" />

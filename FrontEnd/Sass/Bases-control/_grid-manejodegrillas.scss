@@ -17,10 +17,9 @@
     grid-area: sidebard;
     background-color: transparent;
 }
-
 .main {
     padding: 0;
-    padding-top: 10px;
+    // padding-top: 10px;
     grid-area: main;
     background-color: #f4f4f4;
 }
@@ -34,6 +33,11 @@
     grid-area: navbard;
     background-color: #f4f4f4;
 }
+.break{
+    grid-area: break;
+    // background-color: #be1919;
+}
+
 
 /* Media queries para diferentes tamaños de pantalla */
 @media (min-width: 320px) {
@@ -45,6 +49,7 @@
         grid-template:
             "header " 100px
             "navbard" auto
+            "break" 30px
             "main " auto
             "sidebard" auto
             "footer " auto;
@@ -57,6 +62,7 @@
         grid-template:
             "header" 100px
             "navbard" auto
+            "break" 30px
             "main" auto
             "sidebard" auto
             "footer" auto; 
@@ -70,7 +76,8 @@
         grid-template:
             "header header header" 100px
             "navbard navbard navbard" 50px
-            "main main main" auto
+            "break break break" 30px
+            "main main main" auto 
             "sidebard sidebard sidebard" auto 
             "footer footer footer" auto / 200px auto 200px;
     }
@@ -78,7 +85,8 @@
         grid-template:
             "header header header" 100px
             "navbard navbard navbard" 50px
-            "main main main" auto
+            "break break break" 30px
+            "main main main" auto 
             "sidebard sidebard sidebard" auto 
             "footer footer footer" auto / 200px auto 200px;
     }
