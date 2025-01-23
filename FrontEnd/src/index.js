@@ -1,3 +1,17 @@
+import { saludar } from './mensaje.js';
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("miBoton").onclick = function() {
+        saludar();
+    };
+});
+
+import { agregarEventoBoton } from './carritomensaje.js';
+
+// Llamamos a la función para asociar el evento al botón
+agregarEventoBoton();
+
+
 import { startSlider, handleNavClicks, fntExecuteSlide } from './app.js';
 
 // Iniciar el slider
@@ -24,3 +38,5 @@ import { toggleFilterDisplay } from './sidebardcerraryabrir.js';
 
 // Llamar a la función para activar el filtro cuando se haga clic en el botón
 toggleFilterDisplay();
+
+

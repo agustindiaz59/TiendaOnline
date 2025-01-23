@@ -1,5 +1,29 @@
 'use strict';
 
+// mensaje.js
+function saludar() {
+    console.log("¡Hola, el botón ha sido presionado!");
+}
+
+// Función para mostrar el mensaje
+function mostrarMensaje() {
+    const mensaje = document.getElementById('mensaje');
+    mensaje.classList.add('mensaje-visible');
+    
+    // Después de 3 segundos, ocultamos el mensaje
+    setTimeout(() => {
+        mensaje.classList.remove('mensaje-visible');
+    }, 3000); // El mensaje se oculta después de 3 segundos
+}
+
+// Función para asociar la acción al botón
+function agregarEventoBoton() {
+    const botonAgregar = document.getElementById('boton-agregar');
+    if (botonAgregar) {
+        botonAgregar.addEventListener('click', mostrarMensaje);
+    }
+}
+
 // Ejecutar un cambio de imagen cada 5 segundos en el slider, si el contenedor de slider existe.
 function startSlider() {
     if (document.querySelector('#container-slider')) {
@@ -248,6 +272,15 @@ function toggleFilterDisplay() {
     body.style.overflow = ''; // Restablecer el scroll en el body
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("miBoton").onclick = function() {
+        saludar();
+    };
+});
+
+// Llamamos a la función para asociar el evento al botón
+agregarEventoBoton();
 
 // Iniciar el slider
 startSlider();
