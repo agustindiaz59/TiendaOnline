@@ -27,7 +27,7 @@ public class InicioControlador{
 	@GetMapping("/index")
 	public String Inicio() {
 
-		return "index";
+		return "index (2)";
 	}
 
 }

@@ -107,7 +107,7 @@ public class ProductoControlador {
         modelo.addAttribute("colores", colores);
         modelo.addAttribute("tallas", tallas);
 
-        return "products";
+        return "products (2)";
     }
 
 
