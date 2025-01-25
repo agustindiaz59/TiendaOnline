@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="authors" content="Leo-Muro">
+    <title>Tienda en Línea</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./public/bundle.css">
+</head>
+<body class="grid-container no-sidebar body">
+<header class="header">
+    <div class="logo-container">
+        <img src="/assets/imagen/Logo3.png" alt="Logo de la empresa" class="logo-container__img">
+    </div>
+    <input type="checkbox" id="menuToggle" class="menu-toggle">
+    <label for="menuToggle" class="abrirmenu"><i class="bi bi-list"></i></label>
+    <nav class="nav">
+        <label for="menuToggle" class="cerrarmenu"><i class="bi bi-x-lg"></i></label>
+        <ul class="navbar__list">
+            <li class="navbar__item"><a class="navbar__link" href="/index">Inicio</a></li>
+            <li class="navbar__item"><a class="navbar__link" href="/products">Productos</a></li>
+            <li class="navbar__item"><a class="navbar__link" href="#about">Acerca</a></li>
+            <li class="navbar__item"><a class="navbar__link" href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+<nav class="navbard">
+    <form class="navbard__container">
+        <input type="text" placeholder="Buscar..." class="navbard__input">
+        <button class="navbard__search-button"><i class="bi bi-search"></i></button>
+    </form>
+</nav>
+<main class="main">
+    <section id="container-slider">
+        <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
+        <a href="javascript: fntExecuteSlide('next');" class="arrowNext"><i class="fas fa-chevron-circle-right"></i></a>
+        <ul class="listslider">
+            <li><a itlist="itList_0" href="#" class="item-select-slid"></a></li>
+            <li><a itlist="itList_1" href="#"></a></li>
+            <li><a itlist="itList_2" href="#"></a></li>
+        </ul>
+        <ul id="slider">
+            <li style="background-image: url('https://d2r9epyceweg5n.cloudfront.net/stores/479/621/rte/tipos-de-lenceria.jpeg'); z-index:0; opacity: 1;">
+                <div class="content_slider" >
+                    <div>
+                        <h2>Venta de Lencería</h2>
+                        <p>Encuentre las mejores piezas de lencería que combinan estilo, comodidad y sensualidad. ¡Descubra nuestras colecciones exclusivas!</p>
+                        <a href="#" class="btnSlider">Ver más</a>
+                    </div>
+                </div>
+            </li>
+            <li style="background-image: url('https://i.ytimg.com/vi/vaGIzyZynAc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCPBuXHcHfse5yeW0-hnZi5y3HYSg'); ">
+                <div class="content_slider" >
+                    <div>
+                        <h2>Tu Tienda de Lencería</h2>
+                        <p>Explora nuestra selección de lencería diseñada para realzar tu belleza y confianza. ¡Encuentra tu estilo perfecto!</p>
+                        <a href="#" class="btnSlider">Ver más</a>
+                    </div>
+                </div>
+            </li>
+            <li style="background-image: url('https://i.ytimg.com/vi/POS2G0GTdj4/hq720_2.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAAlAADIQj0AgKJD8AEB-AG2CIACuAiKAgwIABABGGUgVChBMA8=&rs=AOn4CLAFM0bnR4pgaq58Okx7uyUSh8Hl0g'); ">
+                <div class="content_slider" >
+                    <div>
+                        <h2>Edición Limitada</h2>
+                        <p>Accede a nuestra colección exclusiva de lencería premium. Diseños únicos, solo para ti.</p>
+                        <a href="#" class="btnSlider">Ver más</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+</main>
+<aside class="sidebard">
+    <div class="cuadrado">
+        <div class="cuadrado__bro">
+            <img src="./assets/imagen/foto1.jpeg" alt="Descripción de la imagen 1">
+        </div>
+        <div class="cuadrado__bro">
+            <img src="./img/tennis/2.jpg" alt="Descripción de la imagen 2">
+        </div>
+        <div class="cuadrado__bro">
+            <img src="./img/thumbs/negro.jpg" alt="">
+        </div>
+        <div class="cuadrado__bro">
+            <img src="./assets/imagen/foto1.jpeg" alt="">
+        </div>
+        <div class="cuadrado__bro">
+            <img src="./assets/imagen/foto2.jpg" alt="">
+        </div>
+        <div class="cuadrado__bro">
+            <img src="./img/tennis/4.jpg" alt="">
+        </div>
+        <div class="cuadrado__bro">
+            <img src="./img/raw/jaizer-capangpangan-2Xhv5zrTLN0-unsplash.jpg" alt="">
+        </div>
+    </div>
+</aside>
+<footer class="footer">
+    <div class="textinfo">
+        <h3 class="textinfo__title" id="contact">Contacto</h3>
+        <p  class="textinfo__text">Email: arayasuarezerika@gmail.com</p>
+        <p  class="textinfo__text">Teléfono: 3873355251</p>
+        <p  class="textinfo__text">Dirección: Pasaje lebhenson 89</p>
+        <ul class="web-social">
+            <li class="web-social__item">
+                <a href="">
+                    <img src="/assets/imagen/youtube-logo.png" alt="youtube logo" class="web-social__logo"/>
+                </a>
+            </li>
+            <li class="web-social__item">
+                <a href="">
+                    <img src="/assets/imagen/instagram-logo.png" alt="instagram logo" class="web-social__logo" />
+                </a>
+            </li>
+            <li class="web-social__item">
+                <a href="">
+                    <img src="/assets/imagen/twitter-logo.png" alt="twitter logo" class="web-social__logo" />
+                </a>
+            </li>
+            <li class="web-social__item">
+                <a href="">
+                    <img src="/assets/imagen/twitch-logo.png" alt="twitch logo" class="web-social__logo" />
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="textinfo">
+        <h3 class="textinfo__title" id="about">Sobre nosotros</h3>
+        <ul class="lista-caracteristicas">
+            <li class="text__raro">Somos una tienda especializada en lencería femenina</li>
+            <li class="text__raro">Ofrecemos una amplia variedad de estilos y tallas</li>
+            <li class="text__raro">Nuestra misión es hacer que cada mujer se sienta hermosa y confiada</li>
+        </ul>
+    </div>
+</footer>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="app.js" cont></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+@use './base';
+@use './buscar';
+@use './grid';
+@use './nav';
+@use './logo';
+@use './contacto';   
+@use './productos';   
+@use './sidebar';
+@use 'componentes/breadcrumbs';
+@use 'componentes/producto';
+@use 'componentes/tabs';
+@use 'componentes/notificacion';
+@use 'componentes/carrito';
+@use 'carrousel/animation';
+@use 'fotosinicio/marcos';

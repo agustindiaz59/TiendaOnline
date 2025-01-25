@@ -1,0 +1,93 @@
+/* Barra de navegación: 
+   Centra los elementos con Flexbox. */
+   .navbard {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+
+    /* Contenedor interno: 
+       Ocupa el 80% de ancho y centra elementos con Flexbox. */
+    &__container {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Campo de entrada: 
+       Campo de texto con altura fija, relleno y esquinas redondeadas. */
+    &__input {
+        height: 2.5rem;
+        width: 50%;
+        padding: 10px;
+        padding-right: 35px;
+        border-radius: 5px 0 0 5px;
+        border: 0;
+        outline: none;
+        font-size: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Botón de búsqueda: 
+       Altura fija, relleno, color de fondo, esquinas redondeadas y efecto hover. */
+    &__search-button {
+        height: 2.5rem;
+        padding: 10px 25px;
+        border: 0;
+        border-radius: 0 5px 5px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: crimson;
+        color: #ffffff;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darkred;
+        }
+    }
+}/* Barra de navegación: 
+   Centra los elementos con Flexbox. */
+.navbard {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+
+  /* Contenedor interno: 
+     Ocupa el 80% de ancho y centra elementos con Flexbox. */
+  &__container {
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  /* Campo de entrada: 
+     Campo de texto con altura fija, relleno y esquinas redondeadas. */
+  &__input {
+      height: 2.5rem;
+      width: 50%;
+      padding: 10px;
+      padding-right: 35px;
+      border-radius: 5px 0 0 5px;
+      border: 0;
+      outline: none;
+      font-size: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Botón de búsqueda: 
+     Altura fija, relleno, color de fondo, esquinas redondeadas y efecto hover. */
+  &__search-button {
+      height: 2.5rem;
+      padding: 10px 25px;
+      border: 0;
+      border-radius: 0 5px 5px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background-color: crimson;
+      color: #ffffff;
+      cursor: pointer;
+
+      &:hover {
+          background-color: darkred;
+      }
+  }
+}
