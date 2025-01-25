@@ -314,9 +314,16 @@
               </svg>
             </button>
           </div>
-          <button type="submit" class="producto__btn-carrito" id="agregar-al-carrito">
-             Enviar Mensaje Whatsapp
-          </button>
+          <div class="contenedor-botones">
+            <button type="submit" class="producto__btn-carrito" id="agregar-al-carrito">
+                Enviar Mensaje Whatsapp
+            </button>
+            <div id="mensaje" class="mensaje-oculto">
+                Producto añadido al carrito.
+            </div>
+            <button id="boton-agregar" class="boton-carrito">
+                <i class="bi bi-bag-heart-fill "></i>
+            </button>
         </div>
       </div>
     </main>
@@ -357,7 +364,8 @@
               <li class="text__raro">Nuestra misión es hacer que cada mujer se sienta hermosa y confiada</li>
             </ul>
     </div>  
+    <button id="miBoton">Haz clic aquí</button>
     </footer>
-    <script defer src="public/bundle.js"></script>
+    <script type="module" src="public/bundle.js"></script>
 </body>
 </html>

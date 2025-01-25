@@ -44,3 +44,50 @@
     background-color: #dfe9fd;
     color: #3483fa;
 }
+
+/* Paginación para móviles (320px a 480px) */
+@media (max-width: 480px) {
+    .pagination-container {
+      padding: 10px;
+    }
+  
+    .pagination {
+      gap: 2px; /* Reducir espacio entre los elementos */
+      font-size: 12px; /* Tamaño de fuente más pequeño */
+    }
+  
+    .page-link {
+      padding: 6px 8px; /* Botones más pequeños */
+      font-size: 12px; /* Tamaño de fuente más pequeño */
+    }
+  
+    .page-item.active .page-link {
+      background-color: #3483fa;
+      color: #fff;
+      border-color: #3483fa;
+    }
+  
+    .page-item.disabled .page-link {
+      color: #ccc;
+      cursor: not-allowed;
+    }
+  
+    .page-link:hover {
+      background-color: #dfe9fd;
+      color: #3483fa;
+    }
+  
+    /* Asegura que el contenedor de paginación no se desborde */
+    .pagination-container {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  
+    .pagination {
+      flex-wrap: nowrap; /* Evitar que se rompa la fila */
+    }
+  
+    .page-item {
+      display: inline-block;
+    }
+  }

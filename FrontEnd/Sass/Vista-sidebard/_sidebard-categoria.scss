@@ -5,7 +5,7 @@
 /* Contenedor del filtro */
 .filter-container {
   width: 250px;
-  padding: 0!important;
+  padding-left: 30px!important;
   margin-top: -410px;
   text-align: left;
   display: block; /* Asegúrate de que se muestre en la vista de PC */
@@ -132,6 +132,7 @@ h3,h2{
   }
   .filter-container {
     display: none;
+    padding: 0!important;
     background-color: #f8f8f8;
     position: fixed; /* Posiciona el contenedor respecto al body */
     top: 0; /* Asegura que empiece desde la parte superior */
