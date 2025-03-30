@@ -1,0 +1,86 @@
+/* Diseño del grid */
+.grid-container > * {
+    padding: 20px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.header { 
+    grid-area: header;
+    background-color: #252424;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidebard {
+    grid-area: sidebard;
+    background-color: transparent;
+}
+
+.main {
+    padding: 0;
+    padding-top: 10px;
+    grid-area: main;
+    background-color: #f4f4f4;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: rgba(237, 123, 67, 0.74);
+    // overflow: auto;
+}
+.navbard{
+    grid-area: navbard;
+    background-color: #f4f4f4;
+}
+
+/* Media queries para diferentes tamaños de pantalla */
+@media (min-width: 320px) {
+    .grid-container {
+        /* Estilo para el contenedor de la cuadrícula
+        Este contenedor usa grid para organizar sus elementos en un diseño estructurado. Establece un espacio de 20px entre las filas y columnas (gap). La propiedad grid-template define la estructura con filas de diferentes tamaños, como un header de 100px de alto, y luego filas automáticas para navbard, main, sidebard y footer. */
+        display: grid;
+        gap: 20px;
+        grid-template:
+            "header " 100px
+            "navbard" auto
+            "main " auto
+            "sidebard" auto
+            "footer " auto;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+    .no-sidebar{
+        grid-template:
+            "header" 100px
+            "navbard" auto
+            "main" auto
+            "sidebard" auto
+            "footer" auto; 
+    }
+  
+}
+
+@media (min-width: 768px) {
+    .grid-container {
+        display: grid; 
+        grid-template:
+            "header header header" 100px
+            "navbard navbard navbard" 50px
+            "main main main" auto
+            "sidebard sidebard sidebard" auto 
+            "footer footer footer" auto / 200px auto 200px;
+    }
+    .no-sidebar{
+        grid-template:
+            "header header header" 100px
+            "navbard navbard navbard" 50px
+            "main main main" auto
+            "sidebard sidebard sidebard" auto 
+            "footer footer footer" auto / 200px auto 200px;
+    }
+}
+

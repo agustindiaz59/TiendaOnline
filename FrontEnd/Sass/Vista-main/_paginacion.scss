@@ -1,0 +1,93 @@
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.pagination {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 5px;
+}
+
+.page-item {
+    display: inline-block;
+}
+
+.page-link {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #000;
+    // border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.page-item.active .page-link {
+    background-color: #3483fa;
+    color: #fff;
+    border-color: #3483fa;
+}
+
+.page-item.disabled .page-link {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.page-link:hover {
+    background-color: #dfe9fd;
+    color: #3483fa;
+}
+
+/* Paginación para móviles (320px a 480px) */
+@media (max-width: 480px) {
+    .pagination-container {
+      padding: 10px;
+    }
+  
+    .pagination {
+      gap: 2px; /* Reducir espacio entre los elementos */
+      font-size: 12px; /* Tamaño de fuente más pequeño */
+    }
+  
+    .page-link {
+      padding: 6px 8px; /* Botones más pequeños */
+      font-size: 12px; /* Tamaño de fuente más pequeño */
+    }
+  
+    .page-item.active .page-link {
+      background-color: #3483fa;
+      color: #fff;
+      border-color: #3483fa;
+    }
+  
+    .page-item.disabled .page-link {
+      color: #ccc;
+      cursor: not-allowed;
+    }
+  
+    .page-link:hover {
+      background-color: #dfe9fd;
+      color: #3483fa;
+    }
+  
+    /* Asegura que el contenedor de paginación no se desborde */
+    .pagination-container {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  
+    .pagination {
+      flex-wrap: nowrap; /* Evitar que se rompa la fila */
+    }
+  
+    .page-item {
+      display: inline-block;
+    }
+  }

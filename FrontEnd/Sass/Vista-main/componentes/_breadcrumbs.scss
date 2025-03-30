@@ -1,0 +1,35 @@
+@use './variables';
+.main{
+   flex-direction: column;
+}
+.breadcrumbs {
+	/* Breadcrumbs
+    Estilo para el contenedor de los breadcrumbs: usa un diseño flexible, alinea los elementos en línea, con un espacio de 10px entre ellos y un margen inferior de 20px. */
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 20px;
+
+	&__svg {
+		height: 10px;
+		width: 10px;
+		color: variables.$color-muted;
+	}
+
+	&__link {
+		color: variables.$color-muted;
+		font-size: 14px;
+	}
+
+	&__link:hover {
+		text-decoration: none; 
+	}
+
+	&__active {
+		/*Enlace Activo dentro de Breadcrumbs
+        Define el estilo para el enlace activo en los breadcrumbs, con un tamaño de fuente de 14px, texto subrayado y color negro, destacando el enlace que representa la página actual. */
+		font-size: 14px;
+		text-decoration: underline;
+		color: #000;
+	}
+}

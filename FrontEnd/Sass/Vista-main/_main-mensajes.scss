@@ -1,0 +1,59 @@
+.mensaje-oculto {
+    visibility: hidden;
+    opacity: 0;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 5px;
+    transition: opacity 0.5s, visibility 0.5s;
+    z-index: 9999; 
+}
+
+.mensaje-visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+// Diseño Boton
+/* Estilo del botón */
+.boton-carrito {
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin bordes */
+    padding: 0; /* Sin relleno extra */
+    margin: 0; /* Sin margen extra */
+    display: inline-flex; /* Ajusta el tamaño al ícono */
+    cursor: pointer; /* Manito en el botón */
+    pointer-events: none; /* Deshabilita los clics en el botón */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo del ícono */
+.boton-carrito i {
+    font-size: 24px; /* Tamaño del ícono */
+    color: #000; /* Color inicial */
+    pointer-events: auto; /* Habilita el clic solo sobre el ícono */
+    transition: color 0.3s ease; /* Suaviza el cambio de color */
+}
+
+/* Cambia el color al pasar el mouse */
+.boton-carrito:hover i {
+    color: #4caf50; /* Verde al pasar el mouse */
+}
+.contenedor-botones {
+    display: flex; /* Activar Flexbox */
+    justify-content: space-between; /* Distribuir los elementos entre el espacio disponible */
+    align-items: center; /* Alinea los botones verticalmente en el centro */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+}
+/* Estilos para pantallas pequeñas (modo celular) */
+@media (max-width: 768px) {
+    .contenedor-botones {
+        flex-direction: column; /* Los botones se apilan uno encima del otro */
+        align-items: flex-start; /* Alinea los botones a la izquierda en pantallas pequeñas */
+        gap: 15px; /* Añade más espacio entre los botones cuando están apilados */
+    }
+}
